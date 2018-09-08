@@ -139,6 +139,29 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-4.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-5.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-6.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-7.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-8.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-9.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-14.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-15.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-16.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-17.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\4.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\5.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\1.imageset\apple-1_framed %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\2.imageset\asparagus_framed %282%29.png" />
+    <ImageAsset Include="Assets.xcassets\3.imageset\aubergine_framed %283%29.png" />
+    <ImageAsset Include="Assets.xcassets\4.imageset\avocado_framed %284%29.png" />
+    <ImageAsset Include="Assets.xcassets\5.imageset\bacon_framed %285%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -148,6 +171,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\1.imageset\" />
+    <Folder Include="Assets.xcassets\2.imageset\" />
+    <Folder Include="Assets.xcassets\3.imageset\" />
+    <Folder Include="Assets.xcassets\4.imageset\" />
+    <Folder Include="Assets.xcassets\5.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\ShopList\ShopList.projitems" Label="Shared" />
