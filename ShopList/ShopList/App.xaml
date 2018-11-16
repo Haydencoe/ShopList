@@ -1,8 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopList.App">
 	<Application.Resources>
+        
+        <Style TargetType="Button" Class="main">
+            <Setter Property="BackgroundColor" Value="#32AE96"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="300"/>
+
+
+          </Style>
+
+
+          <Style TargetType="Button" Class="top">
+            <Setter Property="BackgroundColor" Value="#D3155D"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="300"/>
+
+
+          </Style>
+
     
 	</Application.Resources>
 </Application>

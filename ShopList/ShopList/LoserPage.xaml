@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ShopList.LoserPage"
+             xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             >
+    <ContentPage.Content>
+    <ScrollView>
+       <StackLayout x:Name="endRound" VerticalOptions="Center">
+
+     
+             <Label 
+                x:Name="test"   
+                FontSize="Large"
+                Margin="0,20,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+            
+          <Label 
+                x:Name="newHSLabel"   
+                FontSize="Large"
+                Margin="0,20,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+            
+            <Image
+                x:Name="endGame"   
+                
+                Margin="0,20,0,20"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+
+            <Entry  
+                 x:Name="nameEntry"
+                 MaxLength="10"
+                 Placeholder="Enter name here"
+                 Completed="Entry_Completed"
+
+
+                
+                 WidthRequest="150"  
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+
+                   />
+            
+            <Label 
+                x:Name="scoreLabel"   
+                FontSize="Medium"
+                Margin="0,20,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+
+             <Button 
+                x:Name="restart"   
+                class="top"
+                Margin="0,10,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+
+                 <Button 
+                x:Name="mainMenu"   
+                class="main"
+                Margin="0,10,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+           
+             <Label 
+                x:Name="pickedItems"   
+                FontSize="Large"
+                Margin="20"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                Text="You picked:"   
+                HorizontalTextAlignment="Center" 
+            />
+            
+               
+                         
+            <Grid x:Name="pickedGridLayout" HorizontalOptions="Center" Margin="30"></Grid>
+              
+                
+              
+            
+            <Label 
+                x:Name="shownItems"   
+                FontSize="Large"
+                Margin="20"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="The shopping list:"   
+            />
+            <Grid x:Name="shoppingListGridLayout" HorizontalOptions="Center" Margin="30"></Grid>
+            
+          
+           
+            
+        </StackLayout>
+
+     </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
+
+<!--
+   <controls:FlowListView x:Name="myList" 
+                           FlowColumnCount="3" 
+                           SeparatorVisibility="None" 
+                           HasUnevenRows="false"
+                           
+                           BackgroundColor="White"  >
+                    
+                <controls:FlowListView.FlowColumnTemplate>
+        <DataTemplate>
+          <StackLayout>
+         <Image HeightRequest="100" Aspect="AspectFill"
+                           
+                          
+                            Source="{Binding pictureList}"/>
+          </StackLayout>
+        </DataTemplate>
+      </controls:FlowListView.FlowColumnTemplate>
+                
+                
+                
+                </controls:FlowListView>
+-->

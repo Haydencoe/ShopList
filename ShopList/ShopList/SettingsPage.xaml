@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ShopList.SettingsPage"
+             Title = "Settings"
+             
+             >
+    <ContentPage.Content>
+     
+    
+    
+        <StackLayout BackgroundColor = "#f1f1f1">
+         
+           
+             <StackLayout BackgroundColor="#d3d3d3" HeightRequest="1" Margin="0, 50, 0, -5"></StackLayout>
+            <StackLayout BackgroundColor="White" Margin="0, 0, 0, 0" Padding="20" Orientation="Horizontal">
+            
+                <Label Text="Delete High Scores"  VerticalOptions="CenterAndExpand" FontSize="Large"
+                HorizontalOptions="StartAndExpand"
+                   >
+                    
+                </Label>
+                
+             <Button x:Name="deleteButton" Margin="0, 0, 0, 0" Image="bin" IsEnabled="true" Clicked="DeleteButton_Clicked"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="End"
+
+              />
+           
+            </StackLayout>
+            <StackLayout BackgroundColor="#d3d3d3" HeightRequest="1" Margin="0, -5, 0, 0"></StackLayout>
+            
+            
+            
+            <StackLayout BackgroundColor="#d3d3d3" HeightRequest="1" Margin="0, 50, 0, -5"></StackLayout>
+            <StackLayout BackgroundColor="White" Margin="0, 0, 0, 0" Padding="20" Orientation="Horizontal" >
+            
+                
+                <Image x:Name="soundImage"  HorizontalOptions="Start" Margin="0,0,0,0"></Image>
+                
+                 <Label x:Name="soundLabel" Margin="30,0,0,0" VerticalOptions="CenterAndExpand" FontSize="Large"
+                   HorizontalOptions="StartAndExpand"
+                   >
+                    
+                </Label>
+                
+                
+                
+                
+                <Button x:Name="soundButton" IsEnabled="true"  Clicked="SoundButton_Clicked" Image="setNoSound"
+             VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="End"
+
+              />
+           
+            </StackLayout>
+           <StackLayout BackgroundColor="#d3d3d3" HeightRequest="1" Margin="0, -5, 0, 0"></StackLayout>
+            
+            
+            
+            
+        </StackLayout>
+   
+    
+    
+    
+    
+    </ContentPage.Content>
+</ContentPage>

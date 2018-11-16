@@ -5,6 +5,8 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using Naxam.Controls.Platform.iOS;
+
 namespace ShopList.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -13,6 +15,8 @@ namespace ShopList.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+
+
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -22,10 +26,20 @@ namespace ShopList.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            TopTabbedRenderer.Init();
+
             global::Xamarin.Forms.Forms.Init();
+
+
+
             LoadApplication(new App());
 
+          
+
             return base.FinishedLaunching(app, options);
+
+
+
         }
     }
 }

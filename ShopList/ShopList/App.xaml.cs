@@ -1,6 +1,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DLToolkit.Forms.Controls;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace ShopList
@@ -11,10 +12,14 @@ namespace ShopList
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            FlowListView.Init();
 
-		protected override void OnStart ()
+            MainPage = new NavigationPage(new MainPage());
+
+
+        }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
