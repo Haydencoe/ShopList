@@ -32,9 +32,11 @@
             <!-- Middle -->       
             
             <StackLayout x:Name="midStack" VerticalOptions="CenterAndExpand" >
-                    <Frame  x:Name="playFrame" Padding="0" Margin="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> <Button x:Name="play" Clicked="newGameButton_Clicked" Image="blueButton" Margin="0,0,0,0" BackgroundColor="Transparent"/> </Frame>
+                <Frame  x:Name="playFrame" Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent">
+                  <Button x:Name="play" Padding="20" Clicked="newGameButton_Clicked" Image="blueButton" Margin="0,0,0,0" BackgroundColor="Transparent"/> 
+                </Frame>
         
-                    <Frame  x:Name="optionsFrame" Padding="0" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> <Button x:Name="options" Clicked="optionsButton_Clicked" Image="options" Margin="0,0,0,0" BackgroundColor="Transparent"/> </Frame>
+                    <Frame  x:Name="optionsFrame" Padding="0" Margin="0,10,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> <Button x:Name="options" Clicked="optionsButton_Clicked" Image="options" Margin="0,0,0,0" BackgroundColor="Transparent"/> </Frame>
         
             
                     <AbsoluteLayout  x:Name="buttonLayout" Margin="0,-30,0,0">

@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -281,7 +280,6 @@
     <AndroidResource Include="Resources\drawable\image178.png" />
     <AndroidResource Include="Resources\drawable\bigStar.png" />
     <AndroidResource Include="Resources\drawable\bin.png" />
-    <AndroidResource Include="Resources\drawable\blueButton.png" />
     <AndroidResource Include="Resources\drawable\blurredLogo.png" />
     <AndroidResource Include="Resources\drawable\cross.png" />
     <AndroidResource Include="Resources\drawable\easyGlow.png" />
@@ -300,7 +298,6 @@
     <AndroidResource Include="Resources\drawable\not2.png" />
     <AndroidResource Include="Resources\drawable\not3.png" />
     <AndroidResource Include="Resources\drawable\noTime.png" />
-    <AndroidResource Include="Resources\drawable\options.png" />
     <AndroidResource Include="Resources\drawable\plus.png" />
     <AndroidResource Include="Resources\drawable\podium.png" />
     <AndroidResource Include="Resources\drawable\podium2.png" />
@@ -318,6 +315,8 @@
     <AndroidResource Include="Resources\drawable\toggleOff.png" />
     <AndroidResource Include="Resources\drawable\toggleOn.png" />
     <AndroidResource Include="Resources\drawable\wrong.png" />
+    <AndroidResource Include="Resources\drawable\blueButton.png" />
+    <AndroidResource Include="Resources\drawable\options.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

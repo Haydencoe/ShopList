@@ -20,7 +20,8 @@
                 </Label>
                 
              <Button x:Name="deleteButton" Margin="0, 0, 0, 0" Image="bin" IsEnabled="true" Clicked="DeleteButton_Clicked"
-                VerticalOptions="CenterAndExpand" 
+              BackgroundColor="Transparent"
+                     VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="End"
 
               />
@@ -48,7 +49,7 @@
                 <Button x:Name="soundButton" IsEnabled="true"  Clicked="SoundButton_Clicked" Image="setNoSound"
              VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="End"
-
+                BackgroundColor="Transparent"
               />
            
             </StackLayout>

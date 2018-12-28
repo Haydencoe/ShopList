@@ -14,15 +14,12 @@ namespace ShopList
         public MediumPage()
         {
             InitializeComponent();
-
             gridPage();
 
         }
 
-
         public void gridPage()
         {
-
 
             int totalScores = 0;
 
@@ -70,8 +67,6 @@ namespace ShopList
                     }
 
 
-
-
                     var starTopImage = new Image { Margin = new Thickness(0, 10, 0, 0) };
                     var starBotImage = new Image { Margin = new Thickness(0, 0, 0, 10) };
                     // var scoreButton = new Button { HeightRequest = 100, WidthRequest = 50, BackgroundColor = Color.Blue, TextColor = Color.White };
@@ -80,10 +75,9 @@ namespace ShopList
 
                     var scoreIndexStack = new StackLayout { BackgroundColor = Color.FromHex("#32AE96"), HeightRequest = 100, WidthRequest = 50, Margin = new Thickness(20, 0, 0, 0) };
 
-
                     var dateFrame = new Frame { BackgroundColor = Color.FromHex("#32AE96"), HasShadow = false, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(5, 5, 5, 5), Margin = new Thickness(0, 10, 0, 0) };
 
-                    var scoreFrame = new Frame { HasShadow = true, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(10, 10, 10, 10), Margin = new Thickness(20, 0, 20, 0) };
+                    var scoreFrame = new Frame {BorderColor = Color.Gray, BackgroundColor = Color.Transparent, HasShadow = true, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(10, 10, 10, 10), Margin = new Thickness(20, 0, 20, 0) };
                     var scoreStack = new StackLayout { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(20, 20, 20, 0) };
 
 
@@ -142,6 +136,7 @@ namespace ShopList
 
 
                         layout.Children.Add(scoreFrame);
+
                         layout.Children.Add(scoreStack);
 
                         layout.Children.Add(scoreIndexStack);
@@ -172,9 +167,11 @@ namespace ShopList
 
                         layout.Children.Add(scoreFrame);
                         layout.Children.Add(scoreStack);
-                        layout.Children.Add(scoreIndexStack);
 
-                        scoreLabel.Margin = new Thickness(50, 0, 0, 0);
+                        //layout.Children.Add(scoreIndexStack);
+
+                        //scoreLabel.Margin = new Thickness(50, 0, 0, 0);
+
                         scoreLabel.HorizontalTextAlignment = TextAlignment.Center;
                         scoreLabel.Text = "No highscores to show. \nLet's go make some!";
 
@@ -185,15 +182,12 @@ namespace ShopList
 
                     counter++;
 
-
-
-
                 }// End of for column.
-            }// End of for row.
-
-
+           
+             }// End of for row.
 
         }// End of Grid page Met
 
     }
+
 }

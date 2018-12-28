@@ -37,7 +37,7 @@
                 BorderColor="Black"
                 BorderWidth="0"     
                 Image="profilePic"
-                  
+                  BackgroundColor="Transparent"
                 />
            
                         

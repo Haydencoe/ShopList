@@ -321,7 +321,6 @@
     <ImageAsset Include="Assets.xcassets\175.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\176.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\177.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\178.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\6.imageset\baguette_framed %286%29.png" />
     <ImageAsset Include="Assets.xcassets\7.imageset\banana_framed %287%29.png" />
     <ImageAsset Include="Assets.xcassets\8.imageset\beans_framed %288%29.png" />
@@ -493,7 +492,6 @@
     <ImageAsset Include="Assets.xcassets\175.imageset\water-1_framed %28175%29.png" />
     <ImageAsset Include="Assets.xcassets\176.imageset\water_framed %28176%29.png" />
     <ImageAsset Include="Assets.xcassets\177.imageset\watermelon_framed %28177%29.png" />
-    <ImageAsset Include="Assets.xcassets\178.imageset\wrap_framed %28178%29.png" />
     <ImageAsset Include="Assets.xcassets\Image-38.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Image-39.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\bigStar.imageset\Contents.json" />
@@ -573,6 +571,9 @@
     <ImageAsset Include="Assets.xcassets\toggleOn.imageset\toggleOn.png" />
     <ImageAsset Include="Assets.xcassets\wrong.imageset\wrong.png" />
     <ImageAsset Include="Assets.xcassets\blueButton.imageset\blueButton.png" />
+    <ImageAsset Include="Assets.xcassets\0.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\0.imageset\wrap_framed %28178%29.png" />
+    <ImageAsset Include="Assets.xcassets\90.imageset\ice-cream_framed %2890%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -780,7 +781,6 @@
     <Folder Include="Assets.xcassets\175.imageset\" />
     <Folder Include="Assets.xcassets\176.imageset\" />
     <Folder Include="Assets.xcassets\177.imageset\" />
-    <Folder Include="Assets.xcassets\178.imageset\" />
     <Folder Include="Assets.xcassets\bigStar.imageset\" />
     <Folder Include="Assets.xcassets\bin.imageset\" />
     <Folder Include="Assets.xcassets\blueButton.imageset\" />
@@ -819,6 +819,7 @@
     <Folder Include="Assets.xcassets\toggleOff.imageset\" />
     <Folder Include="Assets.xcassets\toggleOn.imageset\" />
     <Folder Include="Assets.xcassets\wrong.imageset\" />
+    <Folder Include="Assets.xcassets\0.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\ShopList\ShopList.projitems" Label="Shared" />

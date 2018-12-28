@@ -129,6 +129,8 @@ namespace ShopList
 
         public bool plusFlag = false;
 
+        public int loop = 1;
+
         public async void buttonAni()
         {
             int a = 1;
@@ -138,7 +140,7 @@ namespace ShopList
                 await play.ScaleTo(1.1, 1000);
                 await play.ScaleTo(1, 1000);
             }
-            
+           
         }
 
 

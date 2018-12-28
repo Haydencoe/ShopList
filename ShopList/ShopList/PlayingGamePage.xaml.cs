@@ -8,8 +8,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 
-
-
 namespace ShopList
 {
     public static class List
@@ -22,12 +20,15 @@ namespace ShopList
         [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayingGamePage : ContentPage
     {
+        public int foodArrayCount = 0;
         public string difFlag;
 
         public PlayingGamePage(string difFlagIn)
         {
 
             InitializeComponent();
+
+
 
             List.foodList.Clear();
             GameReport.pickedFoodList.Clear();
@@ -44,9 +45,7 @@ namespace ShopList
             selectStack.Opacity = 0;// Faded out.
             roundStack.Opacity  = 0;// Faded out.
             timeStack.Opacity   = 0;// Faded out.
-      
-        
-        
+     
         }
 
         public bool localLLF = true;
@@ -55,7 +54,6 @@ namespace ShopList
         {
             List.foodList.Clear();
             GameReport.pickedFoodList.Clear();
-
 
             // Code for game information to be hidden
             timeStack.Opacity   = 0;// Faded out.
@@ -86,24 +84,20 @@ namespace ShopList
             //await roundStack.TranslateTo(-this.Width, 0, 5);//hide it at the start
             //await selectStack.TranslateTo(-this.Width, 0, 5);//hide it at the start
 
-
-
             listImages(); //Call method to show the list of food images to find.
-         
         
             base.OnAppearing();
         }
-
 
         //Local varibles 
 
         //public string difficulty = "easy";
 
-        public static int[] randomFoodToShow = new int[20];// images to put in random order.
+        //***************** DIFFCULTY VARIBLE ***************************
+        //public static int[] randomFoodToShow = new int[foodArrayCount];// images to put in random order.
 
        
        
-
 
         // ******************Lists needed for the post game report*******************
 
@@ -112,10 +106,7 @@ namespace ShopList
 
        
 
-       
-
-       
-
+  
         // *******************************************************************
 
         //List that stores all the selected items
@@ -143,21 +134,18 @@ namespace ShopList
 
         public AbsoluteLayout layout = new AbsoluteLayout { };
 
-
-
-
+        public int[] randomFoodToShow = new int[0];
 
         public async void listImages()   
         {
 
 
-
-            await roundStack.TranslateTo(-this.Width, 0, 1);//hide it in the left at the start.
+            await roundStack.TranslateTo (-this.Width, 0, 1);//hide it in the left at the start.
             await selectStack.TranslateTo(-this.Width, 0, 1);//hide it in the left at the start.
-            await timeStack.TranslateTo(this.Width, 0, 1);//hide it in the right at the start.
+            await timeStack.TranslateTo  ( this.Width, 0, 1);//hide it in the right at the start.
             selectStack.Opacity = 1;// Faded in.
-            roundStack.Opacity = 1;// Faded in.
-            timeStack.Opacity = 1;// Faded in.
+            roundStack.Opacity  = 1;// Faded in.
+            timeStack.Opacity   = 1;// Faded in.
 
 
             // Code for game information to be hidden
@@ -173,10 +161,13 @@ namespace ShopList
             if (roundCount == 1)
             {
 
+                foodToShow = FoodToShowMeth();// amount of items to show on the first round.
 
-                foodToShow = FoodToShowMeth(); 
-                // Array to store the randomised index of items
-                randomFoodToShow = GetRandomizedArray(20);
+                // Randomised once at the start of the game.
+                randomFoodToShow = new int[177];
+
+                // Array to store the randomised index of items, 177 is the total number of food images availble.
+                randomFoodToShow = GetRandomizedArray(177);
 
                 foodToFind = foodToShow;
             }
@@ -185,14 +176,11 @@ namespace ShopList
             {
                
                 foodToFind++;
-               
                 foodToShow = 1;
                     
             }
 
             foodToSelect = foodToFind;
-
-
 
 
                 if(roundCount == 1)
@@ -298,9 +286,7 @@ namespace ShopList
                     //localLLF = false;
                 //}  
 
-                   
-                   
-
+                  
             
            // }// End of for loop.
 
@@ -315,7 +301,6 @@ namespace ShopList
         {
             listImage.IsVisible = false;
             listLabel.IsVisible = false;
-
 
 
             gridLayout.IsEnabled = true;//
@@ -339,18 +324,57 @@ namespace ShopList
             
             }
 
-           
+            /*
+            if (roundCount > 1)
+            {
+                switch (difFlag)
+                {
+                    case "easy":
+                        foodArrayCount = foodArrayCount+3;
+                        break;
+                    case "medium":
+                        foodArrayCount = foodArrayCount+6;
+                        break;
+                    case "hard":
+                        foodArrayCount = foodArrayCount+9;
+                        break;
+                }
+
+            }
+            */
 
             var productIndex = 0;
 
-            int[] randomL = GetRandomizedArray(20);// Array to store randomised index
 
-            for (int rowIndex = 0; rowIndex < 7; rowIndex++) // Adds all the Rows
+            //***************** DIFFCULTY VARIBLE: NUMBER OF ITEMS DISPLAYED***************************
+            // DIFFCULTY VARIBLE VALUE CREATION
+            foodArrayCount = FoodArraySize(); // 24 for medium on 1st round.
+
+            //int[] randomL = GetRandomizedArray(foodArrayCount);// Array to store randomised index so grid is reordered each time
+           
+             List<int> temp = new List<int>(); // New temp list. 
+
+            for (int i = 0; i < foodArrayCount; i++)
+            {
+                // Load the temp list with the first count of items to fill the gtid with from the randomFoodToShow order to ensure the items that were shown appear in the grid.
+                temp.Add(randomFoodToShow[i]);
+            }
+
+            int[] randomL = temp.ToArray(); // Convert the list to an array for shuffle.
+
+            Shuffle<int>(randomL); // Shuffle the array each time so the grid has a new layout each round
+
+
+            int rowsNeeded = (foodArrayCount/3)+1; // Calculation for the amount of rows to create in the grid to fit them all in. 
+
+
+            for (int rowIndex = 0; rowIndex < rowsNeeded; rowIndex++) // Adds all the Rows
             {
                 for (int columnIndex = 0; columnIndex < 3; columnIndex++)// Adds all the columns 
                 {         
-                    
-                    if (productIndex == 20)// Amount of images to display
+
+                    //***************** DIFFCULTY VARIBLE ***************************
+                    if (productIndex == foodArrayCount)// Amount of images to display
                     {
                         
                         break;
@@ -637,6 +661,9 @@ namespace ShopList
         }
 
 
+       
+
+
         public async void StartTimer(int seconds)
         {
             // Tick every second while game is in progress
@@ -787,6 +814,51 @@ namespace ShopList
             }
         }
 
+        public int FoodArraySize()
+        {
+            int arraySize = 0;
+
+            if (roundCount == 1)
+            {
+                switch (difFlag)
+                {
+                    case "easy":
+                        arraySize = 21;
+                        break;
+                    case "medium":
+                        arraySize = 24;
+                        break;
+                    case "hard":
+                        arraySize = 27;
+                        break;
+                }
+            }
+
+            if (roundCount > 1)
+            {
+                switch (difFlag)
+                {
+                    case "easy":
+                        arraySize = foodArrayCount + 3;
+                        break;
+                    case "medium":
+                        arraySize = foodArrayCount + 6;
+                        break;
+                    case "hard":
+                        arraySize = foodArrayCount + 9;
+                        break;
+                }
+
+            }
+
+
+            return arraySize;
+
+        }
+
+
+
+
         public int FoodToShowMeth()
         {
             int foodToShowL = 0;
@@ -821,7 +893,38 @@ namespace ShopList
 
 
 
-        }// End of Class
+
+        /// <summary>
+        /// Used in Shuffle(T).
+        /// </summary>
+        static Random _random = new Random();
+
+        /// <summary>
+        /// Shuffle the array.
+        /// </summary>
+        /// <typeparam name="T">Array element type.</typeparam>
+        /// <param name="array">Array to shuffle.</param>
+        static void Shuffle<T>(T[] array)
+        {
+            int n = array.Length;
+            for (int i = 0; i < n; i++)
+            {
+                // Use Next on random instance with an argument.
+                // ... The argument is an exclusive bound.
+                //     So we will not go past the end of the array.
+                int r = i + _random.Next(n - i);
+                T t = array[r];
+                array[r] = array[i];
+                array[i] = t;
+            }
+        }
+
+
+    }// End of Class
+
+
+
+
 }//End of namespace
 
 
