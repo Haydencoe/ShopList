@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopList.App">
+	<Application.Resources>
+       
+        <Style TargetType="Button" Class="main">
+            <Setter Property="BackgroundColor" Value="#32AE96"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="300"/>
+
+
+          </Style>
+        
+        <Style TargetType="Button" Class="otherMain">
+            <Setter Property="BackgroundColor" Value="#32AE96"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="0"/>
+            <Setter Property="BorderWidth" Value="0"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="300"/>
+
+
+          </Style>
+
+        
+
+          <Style TargetType="Button" Class="top">
+            <Setter Property="BackgroundColor" Value="#D3155D"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="300"/>
+
+
+          </Style>
+          
+        
+        <Style TargetType="Button" Class="player">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="#D3155D"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="70"/>
+            <Setter Property="WidthRequest" Value="200"/>
+
+
+          </Style>
+        
+         <Style TargetType="Button" Class="selectedPlayer">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="#FFBC2D"/>
+            <Setter Property="BorderRadius" Value="20"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="#FFBC2D"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="70"/>
+            <Setter Property="WidthRequest" Value="200"/>
+
+
+          </Style>
+        
+        
+         <Style TargetType="Button" Class="player2">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="Gray"/>
+            
+          
+           
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="20"/>
+           
+
+
+          </Style>
+        
+         <Style TargetType="Button" Class="selectedPlayer2">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="Black"/>
+           
+           
+            
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HeightRequest" Value="20"/>
+            
+
+
+          </Style>
+    
+	</Application.Resources>
+</Application>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopList.PlayingGamePage"
+             BackgroundColor="White"
+             
+             >
+    <ContentPage.Content>
+     
+        <StackLayout x:Name="mainStack" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent">
+        
+            
+            <Label 
+               
+                HorizontalOptions="CenterAndExpand"
+                x:Name="listLabel"
+                Text="On my shopping list I have..."
+                FontSize="Large"
+                />
+
+            <Image x:Name="listImage"
+                WidthRequest = "150"
+                HeightRequest = "150"
+                Margin="0,70,0,0"
+                HorizontalOptions="CenterAndExpand"
+                  />
+                 
+           
+             <StackLayout x:Name="gameInfo" Margin="0,35,0,0" >
+                
+                 <StackLayout Margin="0,0,0,0"  Orientation="Horizontal" BackgroundColor="Transparent" >
+             
+                   
+                    <Frame  x:Name="roundStack" CornerRadius="10" Padding="10,0,0,0" BackgroundColor="#33000000" Margin="-10,0,0,0">
+            
+                        <StackLayout  Padding="10,10,30,10" HorizontalOptions="Start" Orientation="Vertical" >
+           
+                    
+                            <Label 
+               
+                                x:Name="roundLabel"   
+              
+                                FontSize="Large"
+               
+                                FontAttributes="Bold"
+               
+                                TextColor="White"
+                    
+                            />
+           
+           
+                        </StackLayout>
+        
+                    </Frame>
+             
+           
+                    <Frame  x:Name="timeStack" CornerRadius="10" Padding="0,0,10,0" BackgroundColor="#33000000" Margin="0,0,-10,0" HorizontalOptions="EndAndExpand">       
+           
+                        <StackLayout  Padding="10,10,10,10" HorizontalOptions="EndAndExpand" Orientation="Vertical" >
+           
+                 
+                            <Label 
+               
+                                x:Name="timeLabel"   
+                
+                                FontSize="Large"
+                
+                                FontAttributes="Bold"
+               
+                                WidthRequest="75"
+                
+                                TextColor="White"
+                   
+                            />
+           
+           
+                        </StackLayout>
+           
+                    </Frame>
+            
+          
+                </StackLayout>
+            
+           
+                <Frame  x:Name="selectStack" CornerRadius="10" Padding="10,0,0,0" HorizontalOptions="Start" BackgroundColor="#33000000" Margin="-10,0,0,0">
+           
+                    <StackLayout   BackgroundColor="Transparent" Padding="10,10,10,10" HorizontalOptions="Start" Margin="0,0,0,0" >
+           
+               
+                        <Label
+                    
+             
+                            x:Name="selectLabel"   
+             
+                            FontSize="Medium"                 
+            
+                            TextColor="White"
+          
+                        />  
+           
+            
+                    </StackLayout>
+                   
+                </Frame>
+           
+           
+            </StackLayout>
+            
+           
+            
+              
+           
+            <ScrollView x:Name="scroll" Margin="0,30,0,0">
+                <Grid x:Name="gridLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,20,20" BackgroundColor="Transparent">
+
+                </Grid>
+            </ScrollView>
+
+          
+        
+        
+        </StackLayout>
+             
+      
+        
+            
+    </ContentPage.Content>
+</ContentPage>

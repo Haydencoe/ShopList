@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bnb:BottomBarPage
+    x:Class="ShopList.BottomNavigationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ShopList"
+    xmlns:bnb="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms">
+
+    
+   
+</bnb:BottomBarPage>
+
+
+<!--
+
+<ContentPage
+        Title="Highscores"
+        bnb:BottomBarPageExtensions.TabColor="Goldenrod"
+        Icon="navList.png">
+        
+        <local:ScoresPage/>
+      
+    </ContentPage> 
+    
+    <ContentPage
+        Title="Trophies"
+        bnb:BottomBarPageExtensions.TabColor="Goldenrod"
+        Icon="navAward">
+        <Label
+            FontSize="Large"
+            HorizontalTextAlignment="Center"
+            Text="Trophies"
+            VerticalOptions="Center" />
+    </ContentPage>
+    
+
+
+-->

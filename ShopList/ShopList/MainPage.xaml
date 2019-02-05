@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShopList"
+             x:Class="ShopList.MainPage"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+
+              >
+        
+    <ContentPage.Content  >  <!-- Easy difficulty start -->
+        
+      
+  
+         <StackLayout x:Name="back"  Margin="0,0,0,0" Padding="0, 0, 0,0" BackgroundColor="White" >
+    
+            <!-- Place new controls here -->
+   
+            
+    
+        
+            <!-- Top -->
+           <StackLayout x:Name="logoStack" VerticalOptions="Start" Margin="0,30,0,30"> 
+            
+                    <Image x:Name="logoImage"   />
+         
+            </StackLayout>
+           
+           <!-- End of top -->
+                
+                
+                
+            <!-- Middle -->       
+            
+            <StackLayout x:Name="midStack" VerticalOptions="CenterAndExpand" >
+                <Frame  x:Name="playFrame" Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent">
+                  <Button x:Name="play" Padding="20" Clicked="newGameButton_Clicked" Image="blueButton" Margin="0,0,0,0" BackgroundColor="Transparent"/> 
+                </Frame>
+        
+                    <Frame  x:Name="optionsFrame" Padding="0" Margin="0,10,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> <Button x:Name="options" Clicked="optionsButton_Clicked" Image="options" Margin="0,0,0,0" BackgroundColor="Transparent"/> </Frame>
+        
+            
+                    <AbsoluteLayout  x:Name="buttonLayout" Margin="0,-30,0,0">
+         
+              
+            
+                
+                <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" BackgroundColor="Transparent"
+           AbsoluteLayout.LayoutFlags="PositionProportional" x:Name="plusFrame" Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center"> <Button x:Name="plus" Clicked="PlusButton_Clicked" Image="plus" Margin="0,0,0,0" BackgroundColor="Transparent"/> </Frame>
+        
+                
+           <Image AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" x:Name="notFrame" Source="blankNot">
+                      </Image>
+             
+                
+                
+            <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" Padding="20" x:Name="scoresFrame" BackgroundColor="Transparent" HasShadow="false" HorizontalOptions="Center" >
+            <Frame.GestureRecognizers>
+      <TapGestureRecognizer Tapped="scoresButton_Clicked"/>
+    </Frame.GestureRecognizers>
+        <Frame   Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> 
+           
+                
+                <Button x:Name="scores" Clicked="scoresButton_Clicked" Image="scores" Margin="0,0,0,0" BackgroundColor="Transparent" /> 
+            </Frame>
+        </Frame>
+           
+          
+                
+            
+            <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" Padding="20" x:Name="infoFrame" BackgroundColor="Transparent" HasShadow="false" HorizontalOptions="Center">
+            
+                
+            <Frame.GestureRecognizers>
+      <TapGestureRecognizer Tapped="aboutButton_Clicked"/>
+    </Frame.GestureRecognizers>
+         <Frame  Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> 
+            
+                
+                <Button x:Name="info" Clicked="aboutButton_Clicked" Image="info" Margin="0,0,0,0" BackgroundColor="Transparent" /> 
+            </Frame>
+        </Frame>
+            
+            
+            
+            
+            <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" Padding="20" x:Name="soundFrame" BackgroundColor="Transparent" HasShadow="false" HorizontalOptions="Center">
+            
+                 <Frame.GestureRecognizers>
+      <TapGestureRecognizer Tapped="soundButton_Clicked"/>
+    </Frame.GestureRecognizers>
+            
+        <Frame Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> 
+            
+                <Button x:Name="sound" Clicked="soundButton_Clicked" Image="sound" Margin="0,0,0,0" BackgroundColor="Transparent" /> 
+            </Frame>
+        </Frame>
+            
+                
+                
+            <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" Padding="20" x:Name="settingsFrame" BackgroundColor="Transparent" HasShadow="false" HorizontalOptions="Center">
+            
+                 <Frame.GestureRecognizers>
+      <TapGestureRecognizer Tapped="settingsButton_Clicked"/>
+    </Frame.GestureRecognizers>
+        <Frame  Padding="0" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"> 
+           
+
+                <Button x:Name="settings" Clicked="settingsButton_Clicked" Image="settings" Margin="0,0,0,0" BackgroundColor="Transparent" /> 
+            </Frame>
+       </Frame>
+        
+             
+            
+                
+                
+                </AbsoluteLayout>
+                 
+                 
+              
+   
+            </StackLayout>   <!-- End of Middle -->
+    
+                
+                
+            <!-- Bottom   -->
+            
+            <StackLayout x:Name="difStack" VerticalOptions="End" Margin="0,0,0,0" >
+              
+              
+                
+         
+          
+            </StackLayout> 
+              
+            <!-- End of Bottom -->
+             
+            
+         </StackLayout>  <!-- End of back -->
+         
+           
+     </ContentPage.Content>
+</ContentPage>  <!-- Easy difficulty end-->
+    
+    
+  
+   
+    
+    
+
+
+
+
+
+  
+                <!--  Spare Code I might need later.
+    
+    
+    
+    <StackLayout Orientation="Horizontal"  Margin="0,0,0, 0" >
+               
+                    <Button x:Name="leftArrow" Image="leftArrow" Clicked="LeftButton_Clicked" HorizontalOptions="Start" Margin="15,0,0,0" > </Button>
+                    
+                    <Image x:Name="difImage"  HorizontalOptions="CenterAndExpand" Margin="30,0,30,0" > </Image>
+                    
+                    <Button x:Name="rightArrow" Image="rightArrow" Clicked="RightButton_Clicked" HorizontalOptions="End" Margin="0,0,15,0" > </Button>
+               
+                </StackLayout>
+                 
+                <AbsoluteLayout  Margin="0,0,0,0"  HeightRequest="50"  >
+            
+                    <Image x:Name="glowImage" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="1,1, -1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" >   </Image>   
+            
+                    <Image x:Name="glowImage2" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="hardGlow" >   </Image>
+               
+                    <Image x:Name="glowImage3" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="easyGlow"  >   </Image>
+                    
+                </AbsoluteLayout  >
+              
+    
+    
+    
+
+
+              <Picker x:Name="picker" Title="Select Difficulty" >
+  <Picker.ItemsSource>
+    <x:Array Type="{x:Type x:String}">
+      <x:String>Easy</x:String>
+      <x:String>Medium</x:String>
+      <x:String>Hard</x:String>
+     
+    </x:Array>
+  </Picker.ItemsSource>
+</Picker>
+
+
+<Frame OutlineColor="Silver" BackgroundColor="#f2fdfdfd" Margin="20,20,20,20" Padding ="20,60,20,60">
+
+        <Image x:Name="pageSwitch" Source="pageSwitchMid"  HorizontalOptions="Center" >  </Image> 
+           
+             <Image x:Name="difImage"  HorizontalOptions="Center" Source="easy" >   </Image>
+          
+            <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="Center">    
+
+       
+                
+        <Button x:Name="newGameButton" Text="New Game" IsEnabled="true" Clicked="newGameButton_Clicked" class="top"/>
+
+        <Button x:Name="scoresButton" Text="Leaderboards " IsEnabled="true" Clicked="scoresButton_Clicked" class="main"/>
+
+        <Button x:Name="settingsButton" Text="Settings" IsEnabled="true" Clicked="settingsButton_Clicked" class="main"/>
+                
+        <Button x:Name="aboutButton" Text="About" IsEnabled="true" Clicked="aboutButton_Clicked" class="main"/>
+
+        </StackLayout>        
+                
+     </Frame>
+    
+              <Image x:Name="ringImage" Source="ring" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+           AbsoluteLayout.LayoutFlags="PositionProportional" Margin="0,0,0,0" />
+            
+            
+            
+            
+              <ContentPage.Padding>
+          <OnPlatform x:TypeArguments="Thickness">
+              <On Platform="iOS, Android" Value="0,0,0,0" />
+          </OnPlatform>
+        </ContentPage.Padding>
+   
+            
+            
+            
+
+            -->

@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F36FAF95-0E35-4132-BA28-24265158ECDA}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ShopList.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>ShopList.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IOS_SQLite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\4.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\5.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\1.imageset\apple-1_framed %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\2.imageset\asparagus_framed %282%29.png" />
+    <ImageAsset Include="Assets.xcassets\3.imageset\aubergine_framed %283%29.png" />
+    <ImageAsset Include="Assets.xcassets\4.imageset\avocado_framed %284%29.png" />
+    <ImageAsset Include="Assets.xcassets\5.imageset\bacon_framed %285%29.png" />
+    <ImageAsset Include="Assets.xcassets\6.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\7.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\8.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\9.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\11.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\10.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\12.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\13.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\14.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\15.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\16.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\17.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\18.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\19.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\20.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\21.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\22.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\23.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\24.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\25.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\26.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\27.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\28.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\29.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\30.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\31.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\32.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\33.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\34.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\35.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\36.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\37.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\38.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\39.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\40.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\41.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\42.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\43.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\44.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\45.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\46.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\47.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\48.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\49.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\50.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\51.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\52.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\53.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\54.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\55.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\56.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\57.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\58.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\59.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\60.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\61.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\62.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\63.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\64.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\65.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\66.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\67.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\68.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\69.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\70.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\71.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\72.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\73.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\74.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\75.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\76.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\77.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\78.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\79.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\80.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\81.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\82.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\83.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\84.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\85.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\86.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\87.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\88.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\89.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\90.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\91.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\92.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\93.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\94.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\95.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\96.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\97.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\98.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\99.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\100.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\101.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\102.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\103.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\104.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\105.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\106.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\107.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\108.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\109.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\110.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\111.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\112.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\113.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\114.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\115.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\116.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\117.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\118.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\119.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\120.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\121.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\122.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\123.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\124.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\125.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\126.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\127.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\128.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\129.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\130.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\131.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\132.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\133.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\134.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\135.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\136.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\137.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\138.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\139.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\140.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\141.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\142.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\143.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\144.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\145.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\146.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\147.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\148.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\149.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\150.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\151.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\152.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\153.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\154.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\155.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\156.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\157.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\158.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\159.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\160.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\161.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\162.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\163.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\164.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\165.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\166.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\167.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\168.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\169.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\170.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\171.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\172.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\173.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\174.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\175.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\176.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\177.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\6.imageset\baguette_framed %286%29.png" />
+    <ImageAsset Include="Assets.xcassets\7.imageset\banana_framed %287%29.png" />
+    <ImageAsset Include="Assets.xcassets\8.imageset\beans_framed %288%29.png" />
+    <ImageAsset Include="Assets.xcassets\9.imageset\biscuit_framed %289%29.png" />
+    <ImageAsset Include="Assets.xcassets\10.imageset\blueberries_framed %2810%29.png" />
+    <ImageAsset Include="Assets.xcassets\11.imageset\bread-1_framed %2811%29.png" />
+    <ImageAsset Include="Assets.xcassets\12.imageset\bread_framed %2812%29.png" />
+    <ImageAsset Include="Assets.xcassets\13.imageset\broccoli_framed %2813%29.png" />
+    <ImageAsset Include="Assets.xcassets\14.imageset\butter_framed %2814%29.png" />
+    <ImageAsset Include="Assets.xcassets\15.imageset\cabbage_framed %2815%29.png" />
+    <ImageAsset Include="Assets.xcassets\16.imageset\cake_framed %2816%29.png" />
+    <ImageAsset Include="Assets.xcassets\17.imageset\can-1_framed %2817%29.png" />
+    <ImageAsset Include="Assets.xcassets\18.imageset\can-2_framed %2818%29.png" />
+    <ImageAsset Include="Assets.xcassets\19.imageset\can_framed %2819%29.png" />
+    <ImageAsset Include="Assets.xcassets\20.imageset\candy-1_framed %2820%29.png" />
+    <ImageAsset Include="Assets.xcassets\21.imageset\candy_framed %2821%29.png" />
+    <ImageAsset Include="Assets.xcassets\22.imageset\carrot_framed %2822%29.png" />
+    <ImageAsset Include="Assets.xcassets\23.imageset\cauliflower_framed %2823%29.png" />
+    <ImageAsset Include="Assets.xcassets\24.imageset\cereals_framed %2824%29.png" />
+    <ImageAsset Include="Assets.xcassets\25.imageset\cheese-1_framed %2825%29.png" />
+    <ImageAsset Include="Assets.xcassets\26.imageset\cheese_framed %2826%29.png" />
+    <ImageAsset Include="Assets.xcassets\27.imageset\cherries_framed %2827%29.png" />
+    <ImageAsset Include="Assets.xcassets\28.imageset\chili_framed %2828%29.png" />
+    <ImageAsset Include="Assets.xcassets\29.imageset\chips_framed %2829%29.png" />
+    <ImageAsset Include="Assets.xcassets\30.imageset\chives_framed %2830%29.png" />
+    <ImageAsset Include="Assets.xcassets\31.imageset\chocolate_framed %2831%29.png" />
+    <ImageAsset Include="Assets.xcassets\32.imageset\coconut_framed %2832%29.png" />
+    <ImageAsset Include="Assets.xcassets\33.imageset\coffee-2_framed %2833%29.png" />
+    <ImageAsset Include="Assets.xcassets\34.imageset\coffee-3_framed %2834%29.png" />
+    <ImageAsset Include="Assets.xcassets\35.imageset\coffee-4_framed %2835%29.png" />
+    <ImageAsset Include="Assets.xcassets\36.imageset\coffee-maker_framed %2836%29.png" />
+    <ImageAsset Include="Assets.xcassets\37.imageset\coffee_framed %2837%29.png" />
+    <ImageAsset Include="Assets.xcassets\38.imageset\cookies_framed %2838%29.png" />
+    <ImageAsset Include="Assets.xcassets\39.imageset\corn_framed %2839%29.png" />
+    <ImageAsset Include="Assets.xcassets\40.imageset\corndog_framed %2840%29.png" />
+    <ImageAsset Include="Assets.xcassets\41.imageset\croissant_framed %2841%29.png" />
+    <ImageAsset Include="Assets.xcassets\42.imageset\cucumber_framed %2842%29.png" />
+    <ImageAsset Include="Assets.xcassets\43.imageset\cupcake-1_framed %2843%29.png" />
+    <ImageAsset Include="Assets.xcassets\44.imageset\cupcake-2_framed %2844%29.png" />
+    <ImageAsset Include="Assets.xcassets\45.imageset\cupcake_framed %2845%29.png" />
+    <ImageAsset Include="Assets.xcassets\46.imageset\dairy_framed %2846%29.png" />
+    <ImageAsset Include="Assets.xcassets\47.imageset\doughnut-1_framed %2847%29.png" />
+    <ImageAsset Include="Assets.xcassets\48.imageset\doughnut-2_framed %2848%29.png" />
+    <ImageAsset Include="Assets.xcassets\49.imageset\doughnut_framed %2849%29.png" />
+    <ImageAsset Include="Assets.xcassets\50.imageset\egg_framed %2850%29.png" />
+    <ImageAsset Include="Assets.xcassets\51.imageset\eggs_framed %2851%29.png" />
+    <ImageAsset Include="Assets.xcassets\52.imageset\fig_framed %2852%29.png" />
+    <ImageAsset Include="Assets.xcassets\53.imageset\fish_framed %2853%29.png" />
+    <ImageAsset Include="Assets.xcassets\54.imageset\flour-1_framed %2854%29.png" />
+    <ImageAsset Include="Assets.xcassets\55.imageset\flour_framed %2855%29.png" />
+    <ImageAsset Include="Assets.xcassets\56.imageset\food_framed %2856%29.png" />
+    <ImageAsset Include="Assets.xcassets\57.imageset\frappe_framed %2857%29.png" />
+    <ImageAsset Include="Assets.xcassets\58.imageset\fries_framed %2858%29.png" />
+    <ImageAsset Include="Assets.xcassets\59.imageset\garlic_framed %2859%29.png" />
+    <ImageAsset Include="Assets.xcassets\60.imageset\gingerbread_framed %2860%29.png" />
+    <ImageAsset Include="Assets.xcassets\61.imageset\glass-3_framed %2861%29.png" />
+    <ImageAsset Include="Assets.xcassets\62.imageset\glass-4_framed %2862%29.png" />
+    <ImageAsset Include="Assets.xcassets\63.imageset\glass-5_framed %2863%29.png" />
+    <ImageAsset Include="Assets.xcassets\64.imageset\glass-6_framed %2864%29.png" />
+    <ImageAsset Include="Assets.xcassets\65.imageset\grain_framed %2865%29.png" />
+    <ImageAsset Include="Assets.xcassets\66.imageset\grapes_framed %2866%29.png" />
+    <ImageAsset Include="Assets.xcassets\67.imageset\groceries_framed %2867%29.png" />
+    <ImageAsset Include="Assets.xcassets\68.imageset\ham_framed %2868%29.png" />
+    <ImageAsset Include="Assets.xcassets\69.imageset\hamburguer-1_framed %2869%29.png" />
+    <ImageAsset Include="Assets.xcassets\70.imageset\hamburguer_framed %2870%29.png" />
+    <ImageAsset Include="Assets.xcassets\71.imageset\hazelnut_framed %2871%29.png" />
+    <ImageAsset Include="Assets.xcassets\72.imageset\honey-1_framed %2872%29.png" />
+    <ImageAsset Include="Assets.xcassets\73.imageset\honey_framed %2873%29.png" />
+    <ImageAsset Include="Assets.xcassets\74.imageset\hot-dog-1_framed %2874%29.png" />
+    <ImageAsset Include="Assets.xcassets\75.imageset\hot-dog_framed %2875%29.png" />
+    <ImageAsset Include="Assets.xcassets\76.imageset\ice-cream-1_framed %2876%29.png" />
+    <ImageAsset Include="Assets.xcassets\77.imageset\ice-cream-2_framed %2877%29.png" />
+    <ImageAsset Include="Assets.xcassets\78.imageset\ice-cream-3_framed %2878%29.png" />
+    <ImageAsset Include="Assets.xcassets\79.imageset\ice-cream-4_framed %2879%29.png" />
+    <ImageAsset Include="Assets.xcassets\80.imageset\ice-cream-5_framed %2880%29.png" />
+    <ImageAsset Include="Assets.xcassets\81.imageset\ice-cream-6_framed %2881%29.png" />
+    <ImageAsset Include="Assets.xcassets\82.imageset\ice-cream-7_framed %2882%29.png" />
+    <ImageAsset Include="Assets.xcassets\83.imageset\ice-cream-8_framed %2883%29.png" />
+    <ImageAsset Include="Assets.xcassets\84.imageset\ice-cream-9_framed %2884%29.png" />
+    <ImageAsset Include="Assets.xcassets\85.imageset\ice-cream-10_framed %2885%29.png" />
+    <ImageAsset Include="Assets.xcassets\86.imageset\ice-cream-11_framed %2886%29.png" />
+    <ImageAsset Include="Assets.xcassets\87.imageset\ice-cream-12_framed %2887%29.png" />
+    <ImageAsset Include="Assets.xcassets\88.imageset\ice-cream-13_framed %2888%29.png" />
+    <ImageAsset Include="Assets.xcassets\89.imageset\ice-cream-14_framed %2889%29.png" />
+    <ImageAsset Include="Assets.xcassets\91.imageset\jam-1_framed %2891%29.png" />
+    <ImageAsset Include="Assets.xcassets\92.imageset\jam_framed %2892%29.png" />
+    <ImageAsset Include="Assets.xcassets\93.imageset\jawbreaker_framed %2893%29.png" />
+    <ImageAsset Include="Assets.xcassets\94.imageset\jelly_framed %2894%29.png" />
+    <ImageAsset Include="Assets.xcassets\95.imageset\kebab-1_framed %2895%29.png" />
+    <ImageAsset Include="Assets.xcassets\96.imageset\kebab-2_framed %2896%29.png" />
+    <ImageAsset Include="Assets.xcassets\97.imageset\kebab_framed %2897%29.png" />
+    <ImageAsset Include="Assets.xcassets\98.imageset\lemon-1_framed %2898%29.png" />
+    <ImageAsset Include="Assets.xcassets\99.imageset\lime_framed %2899%29.png" />
+    <ImageAsset Include="Assets.xcassets\100.imageset\meat-1_framed %28100%29.png" />
+    <ImageAsset Include="Assets.xcassets\101.imageset\meat-2_framed %28101%29.png" />
+    <ImageAsset Include="Assets.xcassets\102.imageset\meat_framed %28102%29.png" />
+    <ImageAsset Include="Assets.xcassets\103.imageset\milk-1_framed %28103%29.png" />
+    <ImageAsset Include="Assets.xcassets\104.imageset\milk_framed %28104%29.png" />
+    <ImageAsset Include="Assets.xcassets\105.imageset\mixer_framed %28105%29.png" />
+    <ImageAsset Include="Assets.xcassets\106.imageset\mug_framed %28106%29.png" />
+    <ImageAsset Include="Assets.xcassets\107.imageset\mushroom_framed %28107%29.png" />
+    <ImageAsset Include="Assets.xcassets\108.imageset\mushrooms_framed %28108%29.png" />
+    <ImageAsset Include="Assets.xcassets\109.imageset\mustard-1_framed %28109%29.png" />
+    <ImageAsset Include="Assets.xcassets\110.imageset\mustard-2_framed %28110%29.png" />
+    <ImageAsset Include="Assets.xcassets\111.imageset\mustard_framed %28111%29.png" />
+    <ImageAsset Include="Assets.xcassets\112.imageset\noodles_framed %28112%29.png" />
+    <ImageAsset Include="Assets.xcassets\113.imageset\oat_framed %28113%29.png" />
+    <ImageAsset Include="Assets.xcassets\114.imageset\octopus_framed %28114%29.png" />
+    <ImageAsset Include="Assets.xcassets\115.imageset\olives_framed %28115%29.png" />
+    <ImageAsset Include="Assets.xcassets\116.imageset\onion-1_framed %28116%29.png" />
+    <ImageAsset Include="Assets.xcassets\117.imageset\onion_framed %28117%29.png" />
+    <ImageAsset Include="Assets.xcassets\118.imageset\orange_framed %28118%29.png" />
+    <ImageAsset Include="Assets.xcassets\119.imageset\pan_framed %28119%29.png" />
+    <ImageAsset Include="Assets.xcassets\120.imageset\pancakes-1_framed %28120%29.png" />
+    <ImageAsset Include="Assets.xcassets\121.imageset\pancakes_framed %28121%29.png" />
+    <ImageAsset Include="Assets.xcassets\122.imageset\pasta-1_framed %28122%29.png" />
+    <ImageAsset Include="Assets.xcassets\123.imageset\pasta_framed %28123%29.png" />
+    <ImageAsset Include="Assets.xcassets\124.imageset\peach_framed %28124%29.png" />
+    <ImageAsset Include="Assets.xcassets\125.imageset\pear_framed %28125%29.png" />
+    <ImageAsset Include="Assets.xcassets\126.imageset\peas_framed %28126%29.png" />
+    <ImageAsset Include="Assets.xcassets\127.imageset\pepper-1_framed %28127%29.png" />
+    <ImageAsset Include="Assets.xcassets\128.imageset\pepper_framed %28128%29.png" />
+    <ImageAsset Include="Assets.xcassets\129.imageset\pickles_framed %28129%29.png" />
+    <ImageAsset Include="Assets.xcassets\130.imageset\pie-1_framed %28130%29.png" />
+    <ImageAsset Include="Assets.xcassets\131.imageset\pie-2_framed %28131%29.png" />
+    <ImageAsset Include="Assets.xcassets\132.imageset\pie_framed %28132%29.png" />
+    <ImageAsset Include="Assets.xcassets\133.imageset\pineapple_framed %28133%29.png" />
+    <ImageAsset Include="Assets.xcassets\134.imageset\pint_framed %28134%29.png" />
+    <ImageAsset Include="Assets.xcassets\135.imageset\pistachio_framed %28135%29.png" />
+    <ImageAsset Include="Assets.xcassets\136.imageset\pizza-1_framed %28136%29.png" />
+    <ImageAsset Include="Assets.xcassets\137.imageset\pizza-3_framed %28137%29.png" />
+    <ImageAsset Include="Assets.xcassets\138.imageset\pizza-4_framed %28138%29.png" />
+    <ImageAsset Include="Assets.xcassets\139.imageset\pizza-5_framed %28139%29.png" />
+    <ImageAsset Include="Assets.xcassets\140.imageset\pomegranate_framed %28140%29.png" />
+    <ImageAsset Include="Assets.xcassets\141.imageset\popsicle_framed %28141%29.png" />
+    <ImageAsset Include="Assets.xcassets\142.imageset\potatoes-1_framed %28142%29.png" />
+    <ImageAsset Include="Assets.xcassets\143.imageset\potatoes-2_framed %28143%29.png" />
+    <ImageAsset Include="Assets.xcassets\144.imageset\potatoes_framed %28144%29.png" />
+    <ImageAsset Include="Assets.xcassets\145.imageset\pretzel_framed %28145%29.png" />
+    <ImageAsset Include="Assets.xcassets\146.imageset\pudding_framed %28146%29.png" />
+    <ImageAsset Include="Assets.xcassets\147.imageset\pumpkin_framed %28147%29.png" />
+    <ImageAsset Include="Assets.xcassets\148.imageset\radish_framed %28148%29.png" />
+    <ImageAsset Include="Assets.xcassets\149.imageset\raspberry_framed %28149%29.png" />
+    <ImageAsset Include="Assets.xcassets\150.imageset\rice_framed %28150%29.png" />
+    <ImageAsset Include="Assets.xcassets\151.imageset\risotto_framed %28151%29.png" />
+    <ImageAsset Include="Assets.xcassets\152.imageset\salad-1_framed %28152%29.png" />
+    <ImageAsset Include="Assets.xcassets\153.imageset\salad_framed %28153%29.png" />
+    <ImageAsset Include="Assets.xcassets\154.imageset\salami_framed %28154%29.png" />
+    <ImageAsset Include="Assets.xcassets\155.imageset\salmon_framed %28155%29.png" />
+    <ImageAsset Include="Assets.xcassets\156.imageset\sandwich-1_framed %28156%29.png" />
+    <ImageAsset Include="Assets.xcassets\157.imageset\sandwich_framed %28157%29.png" />
+    <ImageAsset Include="Assets.xcassets\158.imageset\sausage_framed %28158%29.png" />
+    <ImageAsset Include="Assets.xcassets\159.imageset\seeds_framed %28159%29.png" />
+    <ImageAsset Include="Assets.xcassets\160.imageset\shrimp_framed %28160%29.png" />
+    <ImageAsset Include="Assets.xcassets\161.imageset\slotted-spoon_framed %28161%29.png" />
+    <ImageAsset Include="Assets.xcassets\162.imageset\sorbet_framed %28162%29.png" />
+    <ImageAsset Include="Assets.xcassets\163.imageset\spaguetti_framed %28163%29.png" />
+    <ImageAsset Include="Assets.xcassets\164.imageset\spices_framed %28164%29.png" />
+    <ImageAsset Include="Assets.xcassets\165.imageset\steak_framed %28165%29.png" />
+    <ImageAsset Include="Assets.xcassets\166.imageset\strawberry_framed %28166%29.png" />
+    <ImageAsset Include="Assets.xcassets\167.imageset\sushi-1_framed %28167%29.png" />
+    <ImageAsset Include="Assets.xcassets\168.imageset\sushi-2_framed %28168%29.png" />
+    <ImageAsset Include="Assets.xcassets\169.imageset\taco_framed %28169%29.png" />
+    <ImageAsset Include="Assets.xcassets\170.imageset\tea_framed %28170%29.png" />
+    <ImageAsset Include="Assets.xcassets\171.imageset\toast_framed %28171%29.png" />
+    <ImageAsset Include="Assets.xcassets\172.imageset\toffee_framed %28172%29.png" />
+    <ImageAsset Include="Assets.xcassets\173.imageset\tomato_framed %28173%29.png" />
+    <ImageAsset Include="Assets.xcassets\174.imageset\turkey_framed %28174%29.png" />
+    <ImageAsset Include="Assets.xcassets\175.imageset\water-1_framed %28175%29.png" />
+    <ImageAsset Include="Assets.xcassets\176.imageset\water_framed %28176%29.png" />
+    <ImageAsset Include="Assets.xcassets\177.imageset\watermelon_framed %28177%29.png" />
+    <ImageAsset Include="Assets.xcassets\Image-38.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-39.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bigStar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bigStar.imageset\bigStar.png" />
+    <ImageAsset Include="Assets.xcassets\bin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bin.imageset\bin.png" />
+    <ImageAsset Include="Assets.xcassets\blueButton.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\blurredLogo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\blurredLogo.imageset\blurredLogo.png" />
+    <ImageAsset Include="Assets.xcassets\cross.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\cross.imageset\cross.png" />
+    <ImageAsset Include="Assets.xcassets\easyGlow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\easyGlow.imageset\easyGlow.png" />
+    <ImageAsset Include="Assets.xcassets\easyText.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\easyText.imageset\easyText.png" />
+    <ImageAsset Include="Assets.xcassets\greenTick.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\greenTick.imageset\greenTick.png" />
+    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\greenTick.png" />
+    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\hardGlow.png" />
+    <ImageAsset Include="Assets.xcassets\hardText.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\hardText.imageset\hardText.png" />
+    <ImageAsset Include="Assets.xcassets\info.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\info.imageset\info.png" />
+    <ImageAsset Include="Assets.xcassets\leftArrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\leftArrow.imageset\leftArrow.png" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo.imageset\logo.png" />
+    <ImageAsset Include="Assets.xcassets\mediumGlow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mediumText.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\noSound.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\noTime.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\options.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\plus.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\podium.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\podium2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\profilePic.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\right.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\rightArrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\roundBack.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\sad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\scores.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\setNoSound.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\setSound.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\sound.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\star.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\toggleOff.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\toggleOn.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\wrong.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mediumGlow.imageset\mediumGlow.png" />
+    <ImageAsset Include="Assets.xcassets\mediumText.imageset\mediumText.png" />
+    <ImageAsset Include="Assets.xcassets\noSound.imageset\noSound.png" />
+    <ImageAsset Include="Assets.xcassets\not1.imageset\not1.png" />
+    <ImageAsset Include="Assets.xcassets\not2.imageset\not2.png" />
+    <ImageAsset Include="Assets.xcassets\not3.imageset\not3.png" />
+    <ImageAsset Include="Assets.xcassets\noTime.imageset\noTime.png" />
+    <ImageAsset Include="Assets.xcassets\options.imageset\options.png" />
+    <ImageAsset Include="Assets.xcassets\plus.imageset\plus.png" />
+    <ImageAsset Include="Assets.xcassets\podium.imageset\podium.png" />
+    <ImageAsset Include="Assets.xcassets\podium2.imageset\podium2.png" />
+    <ImageAsset Include="Assets.xcassets\profilePic.imageset\profilePic.png" />
+    <ImageAsset Include="Assets.xcassets\right.imageset\right.png" />
+    <ImageAsset Include="Assets.xcassets\rightArrow.imageset\rightArrow.png" />
+    <ImageAsset Include="Assets.xcassets\roundBack.imageset\roundBack.png" />
+    <ImageAsset Include="Assets.xcassets\sad.imageset\sad.png" />
+    <ImageAsset Include="Assets.xcassets\scores.imageset\scores.png" />
+    <ImageAsset Include="Assets.xcassets\setNoSound.imageset\setNoSound.png" />
+    <ImageAsset Include="Assets.xcassets\setSound.imageset\setSound.png" />
+    <ImageAsset Include="Assets.xcassets\settings.imageset\settings.png" />
+    <ImageAsset Include="Assets.xcassets\sound.imageset\sound.png" />
+    <ImageAsset Include="Assets.xcassets\star.imageset\star.png" />
+    <ImageAsset Include="Assets.xcassets\toggleOff.imageset\toggleOff.png" />
+    <ImageAsset Include="Assets.xcassets\toggleOn.imageset\toggleOn.png" />
+    <ImageAsset Include="Assets.xcassets\wrong.imageset\wrong.png" />
+    <ImageAsset Include="Assets.xcassets\blueButton.imageset\blueButton.png" />
+    <ImageAsset Include="Assets.xcassets\0.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\0.imageset\wrap_framed %28178%29.png" />
+    <ImageAsset Include="Assets.xcassets\90.imageset\ice-cream_framed %2890%29.png" />
+    <ImageAsset Include="Assets.xcassets\goButton.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\goButton.imageset\play-button.png" />
+    <ImageAsset Include="Assets.xcassets\topScore.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\topScore.imageset\trophy.png" />
+    <ImageAsset Include="Assets.xcassets\playerSelect.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\greyPlayerSelect.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bluetooth.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bluetooth.imageset\bluetooth-2.png" />
+    <ImageAsset Include="Assets.xcassets\navList.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\navTrophy.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\navTrophy.imageset\navTrophy.png" />
+    <ImageAsset Include="Assets.xcassets\navList.imageset\three-1.png" />
+    <ImageAsset Include="Assets.xcassets\navAward.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\navAward.imageset\award.png" />
+    <ImageAsset Include="Assets.xcassets\noviceAward.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\noviceAward.imageset\029-gift-1.png" />
+    <ImageAsset Include="Assets.xcassets\bronze5Award.imageset\005-bronze-medal.png" />
+    <ImageAsset Include="Assets.xcassets\bronze5Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\silver10Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\gold25Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\silver10Award.imageset\004-silver-medal.png" />
+    <ImageAsset Include="Assets.xcassets\gold25Award.imageset\003-gold-medal.png" />
+    <ImageAsset Include="Assets.xcassets\platinum50Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\platinum50Award.imageset\006-medal.png" />
+    <ImageAsset Include="Assets.xcassets\multiAward.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\multiAward.imageset\026-trophy-3.png" />
+    <ImageAsset Include="Assets.xcassets\multi20Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\multi20Award.imageset\025-reward-1.png" />
+    <ImageAsset Include="Assets.xcassets\played50Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\played100Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\played20Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\played20Award.imageset\017-badge-4.png" />
+    <ImageAsset Include="Assets.xcassets\played50Award.imageset\019-badge-6.png" />
+    <ImageAsset Include="Assets.xcassets\played100Award.imageset\018-badge-5.png" />
+    <ImageAsset Include="Assets.xcassets\proHard20Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\proHard20Award.imageset\012-badge-1.png" />
+    <ImageAsset Include="Assets.xcassets\haydens100Award.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\haydens100Award.imageset\Design.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\playerSelect.imageset\icon-2.png" />
+    <ImageAsset Include="Assets.xcassets\greyPlayerSelect.imageset\icon-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
+    <PackageReference Include="CarouselView.FormsPlugin">
+      <Version>5.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView">
+      <Version>2.0.11</Version>
+    </PackageReference>
+    <PackageReference Include="Naxam.TopTabbedPage.Forms">
+      <Version>0.0.3.5</Version>
+    </PackageReference>
+    <PackageReference Include="PCLStorage">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer">
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.BluetoothLE">
+      <Version>6.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.BLE">
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="ThriveGmbH.BottomNavigationBar.XF">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\1.imageset\" />
+    <Folder Include="Assets.xcassets\2.imageset\" />
+    <Folder Include="Assets.xcassets\3.imageset\" />
+    <Folder Include="Assets.xcassets\4.imageset\" />
+    <Folder Include="Assets.xcassets\5.imageset\" />
+    <Folder Include="Assets.xcassets\6.imageset\" />
+    <Folder Include="Assets.xcassets\7.imageset\" />
+    <Folder Include="Assets.xcassets\8.imageset\" />
+    <Folder Include="Assets.xcassets\9.imageset\" />
+    <Folder Include="Assets.xcassets\11.imageset\" />
+    <Folder Include="Assets.xcassets\10.imageset\" />
+    <Folder Include="Assets.xcassets\12.imageset\" />
+    <Folder Include="Assets.xcassets\13.imageset\" />
+    <Folder Include="Assets.xcassets\14.imageset\" />
+    <Folder Include="Assets.xcassets\15.imageset\" />
+    <Folder Include="Assets.xcassets\16.imageset\" />
+    <Folder Include="Assets.xcassets\17.imageset\" />
+    <Folder Include="Assets.xcassets\18.imageset\" />
+    <Folder Include="Assets.xcassets\19.imageset\" />
+    <Folder Include="Assets.xcassets\20.imageset\" />
+    <Folder Include="Assets.xcassets\21.imageset\" />
+    <Folder Include="Assets.xcassets\22.imageset\" />
+    <Folder Include="Assets.xcassets\23.imageset\" />
+    <Folder Include="Assets.xcassets\24.imageset\" />
+    <Folder Include="Assets.xcassets\25.imageset\" />
+    <Folder Include="Assets.xcassets\26.imageset\" />
+    <Folder Include="Assets.xcassets\27.imageset\" />
+    <Folder Include="Assets.xcassets\28.imageset\" />
+    <Folder Include="Assets.xcassets\29.imageset\" />
+    <Folder Include="Assets.xcassets\30.imageset\" />
+    <Folder Include="Assets.xcassets\31.imageset\" />
+    <Folder Include="Assets.xcassets\32.imageset\" />
+    <Folder Include="Assets.xcassets\33.imageset\" />
+    <Folder Include="Assets.xcassets\34.imageset\" />
+    <Folder Include="Assets.xcassets\35.imageset\" />
+    <Folder Include="Assets.xcassets\36.imageset\" />
+    <Folder Include="Assets.xcassets\37.imageset\" />
+    <Folder Include="Assets.xcassets\38.imageset\" />
+    <Folder Include="Assets.xcassets\39.imageset\" />
+    <Folder Include="Assets.xcassets\40.imageset\" />
+    <Folder Include="Assets.xcassets\41.imageset\" />
+    <Folder Include="Assets.xcassets\42.imageset\" />
+    <Folder Include="Assets.xcassets\43.imageset\" />
+    <Folder Include="Assets.xcassets\44.imageset\" />
+    <Folder Include="Assets.xcassets\45.imageset\" />
+    <Folder Include="Assets.xcassets\46.imageset\" />
+    <Folder Include="Assets.xcassets\47.imageset\" />
+    <Folder Include="Assets.xcassets\48.imageset\" />
+    <Folder Include="Assets.xcassets\49.imageset\" />
+    <Folder Include="Assets.xcassets\50.imageset\" />
+    <Folder Include="Assets.xcassets\51.imageset\" />
+    <Folder Include="Assets.xcassets\52.imageset\" />
+    <Folder Include="Assets.xcassets\53.imageset\" />
+    <Folder Include="Assets.xcassets\54.imageset\" />
+    <Folder Include="Assets.xcassets\55.imageset\" />
+    <Folder Include="Assets.xcassets\56.imageset\" />
+    <Folder Include="Assets.xcassets\57.imageset\" />
+    <Folder Include="Assets.xcassets\58.imageset\" />
+    <Folder Include="Assets.xcassets\59.imageset\" />
+    <Folder Include="Assets.xcassets\60.imageset\" />
+    <Folder Include="Assets.xcassets\61.imageset\" />
+    <Folder Include="Assets.xcassets\62.imageset\" />
+    <Folder Include="Assets.xcassets\63.imageset\" />
+    <Folder Include="Assets.xcassets\64.imageset\" />
+    <Folder Include="Assets.xcassets\65.imageset\" />
+    <Folder Include="Assets.xcassets\66.imageset\" />
+    <Folder Include="Assets.xcassets\67.imageset\" />
+    <Folder Include="Assets.xcassets\68.imageset\" />
+    <Folder Include="Assets.xcassets\69.imageset\" />
+    <Folder Include="Assets.xcassets\70.imageset\" />
+    <Folder Include="Assets.xcassets\71.imageset\" />
+    <Folder Include="Assets.xcassets\72.imageset\" />
+    <Folder Include="Assets.xcassets\73.imageset\" />
+    <Folder Include="Assets.xcassets\74.imageset\" />
+    <Folder Include="Assets.xcassets\75.imageset\" />
+    <Folder Include="Assets.xcassets\76.imageset\" />
+    <Folder Include="Assets.xcassets\77.imageset\" />
+    <Folder Include="Assets.xcassets\78.imageset\" />
+    <Folder Include="Assets.xcassets\79.imageset\" />
+    <Folder Include="Assets.xcassets\80.imageset\" />
+    <Folder Include="Assets.xcassets\81.imageset\" />
+    <Folder Include="Assets.xcassets\82.imageset\" />
+    <Folder Include="Assets.xcassets\83.imageset\" />
+    <Folder Include="Assets.xcassets\84.imageset\" />
+    <Folder Include="Assets.xcassets\85.imageset\" />
+    <Folder Include="Assets.xcassets\86.imageset\" />
+    <Folder Include="Assets.xcassets\87.imageset\" />
+    <Folder Include="Assets.xcassets\88.imageset\" />
+    <Folder Include="Assets.xcassets\89.imageset\" />
+    <Folder Include="Assets.xcassets\90.imageset\" />
+    <Folder Include="Assets.xcassets\91.imageset\" />
+    <Folder Include="Assets.xcassets\92.imageset\" />
+    <Folder Include="Assets.xcassets\93.imageset\" />
+    <Folder Include="Assets.xcassets\94.imageset\" />
+    <Folder Include="Assets.xcassets\95.imageset\" />
+    <Folder Include="Assets.xcassets\96.imageset\" />
+    <Folder Include="Assets.xcassets\97.imageset\" />
+    <Folder Include="Assets.xcassets\98.imageset\" />
+    <Folder Include="Assets.xcassets\99.imageset\" />
+    <Folder Include="Assets.xcassets\100.imageset\" />
+    <Folder Include="Assets.xcassets\101.imageset\" />
+    <Folder Include="Assets.xcassets\102.imageset\" />
+    <Folder Include="Assets.xcassets\103.imageset\" />
+    <Folder Include="Assets.xcassets\104.imageset\" />
+    <Folder Include="Assets.xcassets\105.imageset\" />
+    <Folder Include="Assets.xcassets\106.imageset\" />
+    <Folder Include="Assets.xcassets\107.imageset\" />
+    <Folder Include="Assets.xcassets\108.imageset\" />
+    <Folder Include="Assets.xcassets\109.imageset\" />
+    <Folder Include="Assets.xcassets\110.imageset\" />
+    <Folder Include="Assets.xcassets\111.imageset\" />
+    <Folder Include="Assets.xcassets\112.imageset\" />
+    <Folder Include="Assets.xcassets\113.imageset\" />
+    <Folder Include="Assets.xcassets\114.imageset\" />
+    <Folder Include="Assets.xcassets\115.imageset\" />
+    <Folder Include="Assets.xcassets\116.imageset\" />
+    <Folder Include="Assets.xcassets\117.imageset\" />
+    <Folder Include="Assets.xcassets\118.imageset\" />
+    <Folder Include="Assets.xcassets\119.imageset\" />
+    <Folder Include="Assets.xcassets\120.imageset\" />
+    <Folder Include="Assets.xcassets\121.imageset\" />
+    <Folder Include="Assets.xcassets\122.imageset\" />
+    <Folder Include="Assets.xcassets\123.imageset\" />
+    <Folder Include="Assets.xcassets\124.imageset\" />
+    <Folder Include="Assets.xcassets\125.imageset\" />
+    <Folder Include="Assets.xcassets\126.imageset\" />
+    <Folder Include="Assets.xcassets\127.imageset\" />
+    <Folder Include="Assets.xcassets\128.imageset\" />
+    <Folder Include="Assets.xcassets\129.imageset\" />
+    <Folder Include="Assets.xcassets\130.imageset\" />
+    <Folder Include="Assets.xcassets\131.imageset\" />
+    <Folder Include="Assets.xcassets\132.imageset\" />
+    <Folder Include="Assets.xcassets\133.imageset\" />
+    <Folder Include="Assets.xcassets\134.imageset\" />
+    <Folder Include="Assets.xcassets\135.imageset\" />
+    <Folder Include="Assets.xcassets\136.imageset\" />
+    <Folder Include="Assets.xcassets\137.imageset\" />
+    <Folder Include="Assets.xcassets\138.imageset\" />
+    <Folder Include="Assets.xcassets\139.imageset\" />
+    <Folder Include="Assets.xcassets\140.imageset\" />
+    <Folder Include="Assets.xcassets\141.imageset\" />
+    <Folder Include="Assets.xcassets\142.imageset\" />
+    <Folder Include="Assets.xcassets\143.imageset\" />
+    <Folder Include="Assets.xcassets\144.imageset\" />
+    <Folder Include="Assets.xcassets\145.imageset\" />
+    <Folder Include="Assets.xcassets\146.imageset\" />
+    <Folder Include="Assets.xcassets\147.imageset\" />
+    <Folder Include="Assets.xcassets\148.imageset\" />
+    <Folder Include="Assets.xcassets\149.imageset\" />
+    <Folder Include="Assets.xcassets\150.imageset\" />
+    <Folder Include="Assets.xcassets\151.imageset\" />
+    <Folder Include="Assets.xcassets\152.imageset\" />
+    <Folder Include="Assets.xcassets\153.imageset\" />
+    <Folder Include="Assets.xcassets\154.imageset\" />
+    <Folder Include="Assets.xcassets\155.imageset\" />
+    <Folder Include="Assets.xcassets\156.imageset\" />
+    <Folder Include="Assets.xcassets\157.imageset\" />
+    <Folder Include="Assets.xcassets\158.imageset\" />
+    <Folder Include="Assets.xcassets\159.imageset\" />
+    <Folder Include="Assets.xcassets\160.imageset\" />
+    <Folder Include="Assets.xcassets\161.imageset\" />
+    <Folder Include="Assets.xcassets\162.imageset\" />
+    <Folder Include="Assets.xcassets\163.imageset\" />
+    <Folder Include="Assets.xcassets\164.imageset\" />
+    <Folder Include="Assets.xcassets\165.imageset\" />
+    <Folder Include="Assets.xcassets\166.imageset\" />
+    <Folder Include="Assets.xcassets\167.imageset\" />
+    <Folder Include="Assets.xcassets\168.imageset\" />
+    <Folder Include="Assets.xcassets\169.imageset\" />
+    <Folder Include="Assets.xcassets\170.imageset\" />
+    <Folder Include="Assets.xcassets\171.imageset\" />
+    <Folder Include="Assets.xcassets\172.imageset\" />
+    <Folder Include="Assets.xcassets\173.imageset\" />
+    <Folder Include="Assets.xcassets\174.imageset\" />
+    <Folder Include="Assets.xcassets\175.imageset\" />
+    <Folder Include="Assets.xcassets\176.imageset\" />
+    <Folder Include="Assets.xcassets\177.imageset\" />
+    <Folder Include="Assets.xcassets\bigStar.imageset\" />
+    <Folder Include="Assets.xcassets\bin.imageset\" />
+    <Folder Include="Assets.xcassets\blueButton.imageset\" />
+    <Folder Include="Assets.xcassets\blurredLogo.imageset\" />
+    <Folder Include="Assets.xcassets\cross.imageset\" />
+    <Folder Include="Assets.xcassets\easyGlow.imageset\" />
+    <Folder Include="Assets.xcassets\easyText.imageset\" />
+    <Folder Include="Assets.xcassets\greenTick.imageset\" />
+    <Folder Include="Assets.xcassets\hardGlow.imageset\" />
+    <Folder Include="Assets.xcassets\hardText.imageset\" />
+    <Folder Include="Assets.xcassets\info.imageset\" />
+    <Folder Include="Assets.xcassets\leftArrow.imageset\" />
+    <Folder Include="Assets.xcassets\logo.imageset\" />
+    <Folder Include="Assets.xcassets\mediumGlow.imageset\" />
+    <Folder Include="Assets.xcassets\mediumText.imageset\" />
+    <Folder Include="Assets.xcassets\noSound.imageset\" />
+    <Folder Include="Assets.xcassets\not1.imageset\" />
+    <Folder Include="Assets.xcassets\not2.imageset\" />
+    <Folder Include="Assets.xcassets\not3.imageset\" />
+    <Folder Include="Assets.xcassets\noTime.imageset\" />
+    <Folder Include="Assets.xcassets\options.imageset\" />
+    <Folder Include="Assets.xcassets\plus.imageset\" />
+    <Folder Include="Assets.xcassets\podium.imageset\" />
+    <Folder Include="Assets.xcassets\podium2.imageset\" />
+    <Folder Include="Assets.xcassets\profilePic.imageset\" />
+    <Folder Include="Assets.xcassets\right.imageset\" />
+    <Folder Include="Assets.xcassets\rightArrow.imageset\" />
+    <Folder Include="Assets.xcassets\roundBack.imageset\" />
+    <Folder Include="Assets.xcassets\sad.imageset\" />
+    <Folder Include="Assets.xcassets\scores.imageset\" />
+    <Folder Include="Assets.xcassets\setNoSound.imageset\" />
+    <Folder Include="Assets.xcassets\setSound.imageset\" />
+    <Folder Include="Assets.xcassets\settings.imageset\" />
+    <Folder Include="Assets.xcassets\sound.imageset\" />
+    <Folder Include="Assets.xcassets\star.imageset\" />
+    <Folder Include="Assets.xcassets\toggleOff.imageset\" />
+    <Folder Include="Assets.xcassets\toggleOn.imageset\" />
+    <Folder Include="Assets.xcassets\wrong.imageset\" />
+    <Folder Include="Assets.xcassets\0.imageset\" />
+    <Folder Include="Assets.xcassets\goButton.imageset\" />
+    <Folder Include="Assets.xcassets\topScore.imageset\" />
+    <Folder Include="Assets.xcassets\playerSelect.imageset\" />
+    <Folder Include="Assets.xcassets\greyPlayerSelect.imageset\" />
+    <Folder Include="Assets.xcassets\bluetooth.imageset\" />
+    <Folder Include="Assets.xcassets\navList.imageset\" />
+    <Folder Include="Assets.xcassets\navTrophy.imageset\" />
+    <Folder Include="Assets.xcassets\navAward.imageset\" />
+    <Folder Include="Assets.xcassets\noviceAward.imageset\" />
+    <Folder Include="Assets.xcassets\bronze5Award.imageset\" />
+    <Folder Include="Assets.xcassets\silver10Award.imageset\" />
+    <Folder Include="Assets.xcassets\gold25Award.imageset\" />
+    <Folder Include="Assets.xcassets\platinum50Award.imageset\" />
+    <Folder Include="Assets.xcassets\multiAward.imageset\" />
+    <Folder Include="Assets.xcassets\multi20Award.imageset\" />
+    <Folder Include="Assets.xcassets\played50Award.imageset\" />
+    <Folder Include="Assets.xcassets\played100Award.imageset\" />
+    <Folder Include="Assets.xcassets\played20Award.imageset\" />
+    <Folder Include="Assets.xcassets\proHard20Award.imageset\" />
+    <Folder Include="Assets.xcassets\haydens100Award.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NFF-choice-good.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\ShopList\ShopList.projitems" Label="Shared" />
+</Project>
