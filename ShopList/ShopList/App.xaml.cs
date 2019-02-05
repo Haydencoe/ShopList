@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DLToolkit.Forms.Controls;
+using BottomBar.XamarinForms;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace ShopList
@@ -15,6 +16,9 @@ namespace ShopList
             FlowListView.Init();
 
             MainPage = new NavigationPage(new MainPage());
+
+
+          
 
 
         }

@@ -11,13 +11,24 @@ namespace ShopList
 
         public int a = 0;
 
+        public SQLDatabase sqlDatabase;
+
+        public static List<HardHighscore> hardHighScores = new List<HardHighscore>();
+
+
         public HardPage()
         {
             InitializeComponent();
 
+            sqlDatabase = new SQLDatabase();
+            hardHighScores = sqlDatabase.GetAllHardHighscores();
+
+            hardHighScores.Reverse();
+
             gridPage();
         }
 
+       
 
         public void gridPage()
         {
@@ -25,19 +36,19 @@ namespace ShopList
 
             int totalScores = 0;
 
-            if (HighScores.hardHighScores.Count == 0)
+            if (hardHighScores.Count == 0)
             {
                 totalScores = 1;
                 a = 1;
 
             }
 
-            else if (HighScores.hardHighScores.Count > 0 && HighScores.hardHighScores.Count < 10)
+            else if (hardHighScores.Count > 0 && hardHighScores.Count < 10)
             {
-                totalScores = HighScores.hardHighScores.Count;
+                totalScores = hardHighScores.Count;
             }
 
-            else if (HighScores.hardHighScores.Count >= 10)
+            else if (hardHighScores.Count >= 10)
             {
                 totalScores = 10;
             }
@@ -63,7 +74,7 @@ namespace ShopList
                 for (int columnIndex = 0; columnIndex < 1; columnIndex++)// Adds all the columns 
                 {
 
-                    if (counter == totalScores)// Amount of images to display
+                    if (counter == totalScores)// Amount of scores to display
                     {
                         break;
                     }
@@ -83,7 +94,7 @@ namespace ShopList
                     var dateFrame = new Frame { BackgroundColor = Color.FromHex("#32AE96"), HasShadow = false, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(5, 5, 5, 5), Margin = new Thickness(0, 10, 0, 0) };
 
                     var scoreFrame = new Frame { HasShadow = true, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(10, 10, 10, 10), Margin = new Thickness(20, 0, 20, 0) };
-                    var scoreStack = new StackLayout { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(20, 20, 20, 0) };
+                    var scoreStack = new StackLayout { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(20, 20, 20, 10) };
 
 
                     var scoreIndexLabel = new Label { TextColor = Color.White, HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
@@ -92,6 +103,11 @@ namespace ShopList
 
                     var dateLabel = new Label { TextColor = Color.White, Margin = new Thickness(0, 0, 0, 0), HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
                     //FontSize = 12,
+
+                    var frameStack = new StackLayout { BackgroundColor = Color.Transparent, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand };
+
+                    AbsoluteLayout.SetLayoutBounds(frameStack, new Rectangle(0, 0, 1, 1));
+                    AbsoluteLayout.SetLayoutFlags(frameStack, AbsoluteLayoutFlags.All);
 
                     AbsoluteLayout.SetLayoutBounds(scoreFrame, new Rectangle(0, 0, 1, 1));
                     AbsoluteLayout.SetLayoutFlags(scoreFrame, AbsoluteLayoutFlags.All);
@@ -105,7 +121,9 @@ namespace ShopList
                     AbsoluteLayout.SetLayoutBounds(dateFrame, new Rectangle(1, 0, 0.3, 0.4));
                     AbsoluteLayout.SetLayoutFlags(dateFrame, AbsoluteLayoutFlags.All);
 
-
+                    frameStack.Children.Add(scoreFrame);
+                    scoreFrame.Content = scoreStack;
+                    dateFrame.Content = dateLabel;
 
                     scoreStack.Children.Add(scoreLabel);
                     scoreStack.Children.Add(nameLabel);
@@ -114,13 +132,8 @@ namespace ShopList
                     scoreIndexStack.Children.Add(scoreIndexLabel);
                     scoreIndexStack.Children.Add(starBotImage);
 
-                    scoreFrame.Content = scoreStack;
-                    dateFrame.Content = dateLabel;
 
-
-
-
-                    if (HighScores.hardHighScores.Count > 0)
+                    if (hardHighScores.Count > 0)
                     {
                         if (counter == 0)
                         {
@@ -137,39 +150,42 @@ namespace ShopList
 
                         }
 
-
-
-
-                        layout.Children.Add(scoreFrame);
+                        // layout.Children.Add(scoreFrame);
+                        layout.Children.Add(frameStack);
                         layout.Children.Add(scoreStack);
-
                         layout.Children.Add(scoreIndexStack);
                         layout.Children.Add(dateFrame);
 
                         scoreIndexLabel.Text = (counter + 1).ToString();
 
-                        string productString = HighScores.hardHighScores[counter];
+
+                        HardHighscore score = hardHighScores[counter];
 
 
-                        string roundSubStr = productString.Substring(0, 9);
-                        scoreLabel.Text = roundSubStr;//Round number score to display.
+                        string roundSubStr = score.Round;
+                        scoreLabel.Text = "Round: " + roundSubStr;//Round number score to display.
 
-                        string dateSubStr = productString.Substring(9, 11);
+
+                        DateTime dt = score.CreatedOn;
+                        string dateSubStr = dt.ToString("dd.MM.yyyy");
                         dateLabel.Text = dateSubStr;//Date of the score to display.
 
-                        string nameSubStr = productString.Substring(20);
+                        string nameSubStr = score.Name;
                         nameLabel.Text = nameSubStr;
+
 
                         gridLayout.Children.Add(layout, columnIndex, rowIndex);
 
                     }
 
-                    else if (HighScores.hardHighScores.Count == 0 && a == 1) // The high scores list is empty and there are none to load. 
+                    else if (hardHighScores.Count == 0 && a == 1) // The high scores list is empty and there are none to load. 
 
                     {
                         scoreStack.BackgroundColor = Color.Transparent;
 
-                        layout.Children.Add(scoreFrame);
+
+                        
+                        layout.Children.Add(frameStack);
                         layout.Children.Add(scoreStack);
                         //layout.Children.Add(scoreIndexStack);
 
@@ -183,7 +199,6 @@ namespace ShopList
 
 
                     counter++;
-
 
 
 

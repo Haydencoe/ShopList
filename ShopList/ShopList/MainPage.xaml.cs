@@ -78,10 +78,10 @@ namespace ShopList
         {
             InitializeComponent();
 
-            difImage.Source = difFlag + "Text";
+            //difImage.Source = difFlag + "Text";
 
-            glowImage.Source = difFlag + "Glow";
-            glowImage.WidthRequest = this.Width;
+            //glowImage.Source = difFlag + "Glow";
+            //glowImage.WidthRequest = this.Width;
 
             NavigationPage.SetHasNavigationBar(this, false);
             // BackgroundImage = "backG";
@@ -147,6 +147,7 @@ namespace ShopList
         //Loads in scores 
         public async void Load()
         {
+            /*
             IFolder rootFolder = FileSystem.Current.LocalStorage;
             IFolder highScoresFolder = await rootFolder.CreateFolderAsync("highScores", CreationCollisionOption.OpenIfExists);
 
@@ -203,15 +204,11 @@ namespace ShopList
                     HighScores.hardHighScores.Sort();
                     HighScores.hardHighScores.Reverse();
 
-
-
                 }
 
                 catch// No scores saved on phone so add an empty highscore entry 
                 {
-
                     flag = 1;// indicator of no saved scores 
-
                 }
 
 
@@ -221,10 +218,10 @@ namespace ShopList
             {
                 
             }
-
+            */
             //*************************************************
             // Load settings in
-
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
 
             IFolder settingsFolder = await rootFolder.CreateFolderAsync("settings", CreationCollisionOption.OpenIfExists);
 
@@ -257,11 +254,10 @@ namespace ShopList
                 }
 
 
-           
-
-
         }//End of load.
 
+
+        /*
         private async void LeftButton_Clicked(object sender, EventArgs e)
         {
             if (difFlag == "medium")
@@ -371,14 +367,20 @@ namespace ShopList
 
             }
 
-        }
+        }*/
 
         private async void newGameButton_Clicked(object sender, EventArgs e)
         {
-           
 
-            await Navigation.PushModalAsync(new PlayingGamePage(difFlag));
+
+            //await Navigation.PushModalAsync(new PlayingGamePage(difFlag));
+
+
+            await Navigation.PushAsync(new GameSetupPage());
         }
+
+
+
 
         private async void scoresButton_Clicked(object sender, EventArgs e)
         {
@@ -387,8 +389,10 @@ namespace ShopList
             Notifications.notFlag = 0;
 
             //notFrame.Source = null;
-            await Navigation.PushAsync(new ScoresPage(flag));
+            //await Navigation.PushAsync(new ScoresPage(flag));
+            await Navigation.PushAsync(new BottomNavigationPage());
         }
+    
 
         private async void settingsButton_Clicked(object sender, EventArgs e)
         {

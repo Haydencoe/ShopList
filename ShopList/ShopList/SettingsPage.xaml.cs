@@ -8,6 +8,8 @@ namespace ShopList
 {
     public partial class SettingsPage : ContentPage
     {
+        public SQLDatabase sqlDatabase;
+
         public SettingsPage()
         {
             InitializeComponent();
@@ -26,51 +28,24 @@ namespace ShopList
                 soundLabel.Text = "Sound on";
                 soundImage.Source = "setSound";
             }
-           
-
 
         }
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-
-            var Entry = "highScores";
-
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
-
            
             //await DisplayAlert("Delete Folder Result", Entry + " has been deleted!", "OK");
             var answer = await DisplayAlert("Warning!", "Are you sure you want to delete your high scores?", "Yes", "Cancel");
 
             if (answer == true)
             {
-                // Delete Folder entered in EntDeleteSubFolder
-                var subfolderExists = await rootFolder.CheckExistsAsync(Entry);
-                if (subfolderExists != ExistenceCheckResult.FolderExists)
-                {
-                    await DisplayAlert("Delete Folder Result", Entry + " doesn't exist", "OK");
-                    return;
-                }
-                IFolder subfolder = await rootFolder.GetFolderAsync(Entry);
-                await subfolder.DeleteAsync();
-
-                Notifications.notFlag = 0;
-
-                HighScores.highScores.Clear();
-                HighScores.mediumHighScores.Clear();
-                HighScores.hardHighScores.Clear();
-
+               
+                sqlDatabase = new SQLDatabase();
+                sqlDatabase.DeleteAllEasyHighscores();
+                sqlDatabase.DeleteAllMediumHighscores();
+                sqlDatabase.DeleteAllHardHighscores();
 
             }
-
-            //Title = answer.ToString();
-
-            //await DisplayAlert("","Highscores deleted!", "OK");
-
-            //deleteLabel.Text = "Scores deleted!";
-
-
-
 
         }
 
@@ -117,36 +92,6 @@ namespace ShopList
 
 
         }
-
-
-
-
-
-
-
-
-        /*
-        //Delete Folder
-        async void DeleteFolder(object sender, EventArgs e)
-        {
-            var Entry = "Highscores";
-
-            IFolder rootFolder = FileSystem.Current.LocalStorage
-
-            // Delete Folder entered in EntDeleteSubFolder
-            var subfolderExists = await rootFolder.CheckExistsAsync(Entry);
-            if (subfolderExists != ExistenceCheckResult.FolderExists)
-            {
-                await DisplayAlert("Delete Folder Result", Entry + " doesn't exist", "OK");
-                return;
-            }
-            IFolder subfolder = await rootFolder.GetFolderAsync(Entry);
-            await subfolder.DeleteAsync();
-            await DisplayAlert("Delete Folder Result", Entry + " has been deleted!", "OK");
-       
-            deleteLabel.Text = "Scores deleted!";
-        }
-        */
 
     }
 }

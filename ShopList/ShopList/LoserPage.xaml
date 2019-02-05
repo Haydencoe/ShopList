@@ -39,15 +39,27 @@
                  Placeholder="Enter name here"
                  Completed="Entry_Completed"
 
-
-                
                  WidthRequest="150"  
                  VerticalOptions="Center"
                  HorizontalOptions="Center"
-
-                   />
+                 />
             
-            <Label 
+            <StackLayout x:Name="awardStack" IsVisible="false"> 
+             
+                <Label 
+                x:Name="newAwardLabel"
+                Text="You earned a new award!"   
+                FontSize="Large"
+                Margin="0,20,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                />
+                        
+               <Grid x:Name="awardsGridLayout" HorizontalOptions="Center" Margin="30"></Grid>       
+            
+             </StackLayout>    
+            
+             <Label 
                 x:Name="scoreLabel"   
                 FontSize="Medium"
                 Margin="0,20,0,0"
@@ -80,12 +92,9 @@
                 Text="You picked:"   
                 HorizontalTextAlignment="Center" 
             />
-            
-               
+           
                          
             <Grid x:Name="pickedGridLayout" HorizontalOptions="Center" Margin="30"></Grid>
-              
-                
               
             
             <Label 
@@ -98,9 +107,7 @@
                 Text="The shopping list:"   
             />
             <Grid x:Name="shoppingListGridLayout" HorizontalOptions="Center" Margin="30"></Grid>
-            
-          
-           
+        
             
         </StackLayout>
 

@@ -11,7 +11,7 @@
         
       
   
-         <StackLayout x:Name="back"  Margin="0,0,0,0" Padding="0, 0, 0,0"  >
+         <StackLayout x:Name="back"  Margin="0,0,0,0" Padding="0, 0, 0,0" BackgroundColor="White" >
     
             <!-- Place new controls here -->
    
@@ -132,26 +132,7 @@
             <StackLayout x:Name="difStack" VerticalOptions="End" Margin="0,0,0,0" >
               
               
-                <StackLayout Orientation="Horizontal"  Margin="0,0,0, 0" >
-               
-                    <Button x:Name="leftArrow" Image="leftArrow" Clicked="LeftButton_Clicked" HorizontalOptions="Start" Margin="15,0,0,0" > </Button>
-                    
-                    <Image x:Name="difImage"  HorizontalOptions="CenterAndExpand" Margin="30,0,30,0" > </Image>
-                    
-                    <Button x:Name="rightArrow" Image="rightArrow" Clicked="RightButton_Clicked" HorizontalOptions="End" Margin="0,0,15,0" > </Button>
-               
-                </StackLayout>
-                 
-                <AbsoluteLayout  Margin="0,0,0,0"  HeightRequest="50"  >
-            
-                    <Image x:Name="glowImage" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="1,1, -1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" >   </Image>   
-            
-                    <Image x:Name="glowImage2" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="hardGlow" >   </Image>
-               
-                    <Image x:Name="glowImage3" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="easyGlow"  >   </Image>
-                    
-                </AbsoluteLayout  >
-              
+                
          
           
             </StackLayout> 
@@ -178,6 +159,32 @@
   
                 <!--  Spare Code I might need later.
     
+    
+    
+    <StackLayout Orientation="Horizontal"  Margin="0,0,0, 0" >
+               
+                    <Button x:Name="leftArrow" Image="leftArrow" Clicked="LeftButton_Clicked" HorizontalOptions="Start" Margin="15,0,0,0" > </Button>
+                    
+                    <Image x:Name="difImage"  HorizontalOptions="CenterAndExpand" Margin="30,0,30,0" > </Image>
+                    
+                    <Button x:Name="rightArrow" Image="rightArrow" Clicked="RightButton_Clicked" HorizontalOptions="End" Margin="0,0,15,0" > </Button>
+               
+                </StackLayout>
+                 
+                <AbsoluteLayout  Margin="0,0,0,0"  HeightRequest="50"  >
+            
+                    <Image x:Name="glowImage" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="1,1, -1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" >   </Image>   
+            
+                    <Image x:Name="glowImage2" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="hardGlow" >   </Image>
+               
+                    <Image x:Name="glowImage3" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand" Opacity="0" AbsoluteLayout.LayoutBounds="1,1,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" Source="easyGlow"  >   </Image>
+                    
+                </AbsoluteLayout  >
+              
+    
+    
+    
+
 
               <Picker x:Name="picker" Title="Select Difficulty" >
   <Picker.ItemsSource>

@@ -22,8 +22,9 @@ namespace ShopList
     {
         public int foodArrayCount = 0;
         public string difFlag;
+        public string playerMode;
 
-        public PlayingGamePage(string difFlagIn)
+        public PlayingGamePage(string difFlagIn, string playerModeIn)
         {
 
             InitializeComponent();
@@ -34,7 +35,8 @@ namespace ShopList
             GameReport.pickedFoodList.Clear();
 
             difFlag = difFlagIn;
-            
+            playerMode = playerModeIn;
+
             //listLabel.Text = difFlag;
 
             gridLayout.IsVisible  = false;
@@ -131,6 +133,7 @@ namespace ShopList
 
         public int foodToShow   = 0;
 
+        public StackLayout centerStack;
 
         public AbsoluteLayout layout = new AbsoluteLayout { };
 
@@ -718,7 +721,7 @@ namespace ShopList
                 gridLayout.Children.Clear();
                 storeList.Clear();
 
-                await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag));// Loads the loser page
+                await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag, playerMode));// Loads the loser page
 
                 Content = mainStack;
             }
@@ -743,7 +746,7 @@ namespace ShopList
 
 
 
-                await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag));// Loads the loser page
+                await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag, playerMode));// Loads the loser page
 
 
                 //Make sure everything is reset
@@ -783,38 +786,90 @@ namespace ShopList
                 timeStack.IsVisible   = false;
 
                 // Good work info displayed centered.
-                StackLayout centerStack = new StackLayout { VerticalOptions = LayoutOptions.CenterAndExpand, Opacity = 0 };
+                centerStack = new StackLayout { VerticalOptions = LayoutOptions.CenterAndExpand, Opacity = 0 };
                 Image centerImage = new Image { VerticalOptions = LayoutOptions.Center, Opacity = 100, WidthRequest = 200, HeightRequest = 200 };
                 Label centerLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 36 };
                 centerImage.Source = ("greenTick");
                 centerLabel.Text = "Nice!";
                 centerStack.Children.Add(centerImage);
                 centerStack.Children.Add(centerLabel);
-                Content = centerStack;
 
 
-                await centerStack.FadeTo(1, 200);// Fade in.
-                await Task.Delay(600);// time to see the image
-                await centerStack.FadeTo(0, 200);// Fade back out.
-               
-                //await Task.Delay(500); // Waits 1 second
+                // Multiplayer mode switch over  *****************
 
-                Content = mainStack;
+                if (playerMode == "multi")
+                {
+                    Label multiLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20 }; 
+                    Button continueButton = new Button { HeightRequest = 50, WidthRequest = 200,  HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20 };
 
-                correctCount = 0;// resets the correct amount found to 0
-                foodToSelect = 0;// resets the left to select amount  to 0
-                selectCount  = 0;// resets the select amount  to 0
+                    continueButton.Clicked += Continue_Clicked;
+                    continueButton.Text = "Continue";
+                    multiLabel.Text = "Swap players then press continue";
+                    centerStack.Children.Add(multiLabel);
+                    centerStack.Children.Add(continueButton);
 
-                gridLayout.Children.Clear();
-                storeList.Clear();
+                    Content = centerStack;
 
-                roundCount++;
+                    await centerStack.FadeTo(1, 200);// Fade in.
+                }
 
-                listImages();// Calls for the next item to be added and shown.
+                // ***********************************************
+
+                else
+                {
+                    Content = centerStack;
+
+                    await centerStack.FadeTo(1, 200);// Fade in.
+
+                    await Task.Delay(600);// time to see the image
+                    await centerStack.FadeTo(0, 200);// Fade back out.
+
+                    //await Task.Delay(500); // Waits 1 second
+
+                    Content = mainStack;
+
+                    correctCount = 0;// resets the correct amount found to 0
+                    foodToSelect = 0;// resets the left to select amount  to 0
+                    selectCount = 0;// resets the select amount  to 0
+
+                    gridLayout.Children.Clear();
+                    storeList.Clear();
+
+                    roundCount++;
+
+                    listImages();// Calls for the next item to be added and shown.
+
+                }
+            
             }
         }
 
-        public int FoodArraySize()
+
+        private async void Continue_Clicked(object sender, EventArgs e)
+        {
+
+            await centerStack.FadeTo(0, 200);// Fade back out.
+
+            //await Task.Delay(500); // Waits 1 second
+
+            Content = mainStack;
+
+            correctCount = 0;// resets the correct amount found to 0
+            foodToSelect = 0;// resets the left to select amount  to 0
+            selectCount = 0;// resets the select amount  to 0
+
+            gridLayout.Children.Clear();
+            storeList.Clear();
+
+            roundCount++;
+
+            listImages();// Calls for the next item to be added and shown.
+
+        }
+
+
+
+            public int FoodArraySize()
         {
             int arraySize = 0;
 
@@ -931,47 +986,3 @@ namespace ShopList
 //Spare Code:
 
 
-/*
-            timeLabel.Text = "Well done!";
-            await timeStack.FadeTo(1, 100);
-            timeStack.IsVisible = true;
-
-            await Task.Delay(1000); // Waits 
-
-            await timeStack.FadeTo(0, 200); // Fade out.
-            timeStack.IsVisible = false;
-            */
-
-
-// public AbsoluteLayout layout = new AbsoluteLayout();
-// public Button parent = new Button();
-
-/*Abso layout code
-AbsoluteLayout.SetLayoutBounds(parent, new Rectangle(0, 0, 20, 20));
-
-layout.Children.Add(parent);
-*/
-
-
-//for (int i = 0; i < listRow.Count; i++)
-//{
-
-//gridLayout.Children.Add(selButtonIndex, listColum[i], listRow[i]);
-
-//}
-
-/*
- 
-
-        private int randomFood()// Code to select random number.  
-        {
-            int result;
-            Random rnd = new Random();
-            result = rnd.Next(1, 20);
-
-            return result;
-
-        }
-
-
- */
