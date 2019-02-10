@@ -101,39 +101,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\1.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\2.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\3.imageset\Contents.json" />
@@ -607,10 +574,35 @@
     <ImageAsset Include="Assets.xcassets\proHard20Award.imageset\012-badge-1.png" />
     <ImageAsset Include="Assets.xcassets\haydens100Award.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\haydens100Award.imageset\Design.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
     <ImageAsset Include="Assets.xcassets\playerSelect.imageset\icon-2.png" />
     <ImageAsset Include="Assets.xcassets\greyPlayerSelect.imageset\icon-3.png" />
+    <ImageAsset Include="Assets.xcassets\launchScreen.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\launchScreen.imageset\pattern-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-20%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-20%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Design-1024.png" />
+    <ImageAsset Include="Assets.xcassets\twitter.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\twitter.imageset\013-twitter-1.png" />
+    <ImageAsset Include="Assets.xcassets\linkedin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\github.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\linkedin.imageset\031-linkedin.png" />
+    <ImageAsset Include="Assets.xcassets\github.imageset\039-github.png" />
+    <ImageAsset Include="Assets.xcassets\changeOver.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\changeOver.imageset\swap-3.png" />
+    <ImageAsset Include="Assets.xcassets\gameComplete.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\gameComplete.imageset\confetti-3.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -889,6 +881,12 @@
     <Folder Include="Assets.xcassets\played20Award.imageset\" />
     <Folder Include="Assets.xcassets\proHard20Award.imageset\" />
     <Folder Include="Assets.xcassets\haydens100Award.imageset\" />
+    <Folder Include="Assets.xcassets\launchScreen.imageset\" />
+    <Folder Include="Assets.xcassets\twitter.imageset\" />
+    <Folder Include="Assets.xcassets\linkedin.imageset\" />
+    <Folder Include="Assets.xcassets\github.imageset\" />
+    <Folder Include="Assets.xcassets\changeOver.imageset\" />
+    <Folder Include="Assets.xcassets\gameComplete.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\NFF-choice-good.wav" />

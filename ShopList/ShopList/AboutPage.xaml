@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopList.AboutPage"
-             Title = "About"
+             Title = "Information"
              
              >
    
@@ -21,13 +21,23 @@
              
                     <StackLayout HeightRequest = "150"  Margin="0, 0, 0, 0" BackgroundColor="White"> 
                         
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         
+                            <Button x:Name="twitterButton"  Image ="twitter"  HeightRequest="40" WidthRequest="40" Margin="20,20,20,20" Clicked="Twitter_Clicked" BackgroundColor="Transparent">
+                            </Button>
+                            <Button x:Name="linkedinButton" Image ="linkedin" HeightRequest="40" WidthRequest="40" Margin="20,20,20,20" Clicked="Linkedin_Clicked" BackgroundColor="Transparent">
+                            </Button>
+                            <Button x:Name="githubButton"   Image ="github"   HeightRequest="40" WidthRequest="40" Margin="20,20,20,20" Clicked="Github_Clicked" BackgroundColor="Transparent">
+                            </Button>
+                            </StackLayout>
+                    
                     </StackLayout>
                     
                     
             
                 <Button x:Name="Me"
                
+                Clicked="Me_Clicked"
                 WidthRequest = "150"
                 HeightRequest = "150"
                 Margin="0, -75, 0, 0"
@@ -37,7 +47,7 @@
                 BorderColor="Black"
                 BorderWidth="0"     
                 Image="profilePic"
-                  BackgroundColor="Transparent"
+                BackgroundColor="Transparent"
                 />
            
                         

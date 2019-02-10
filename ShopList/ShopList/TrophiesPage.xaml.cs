@@ -51,13 +51,13 @@ namespace ShopList
                     var starTopImage = new Image { Margin = new Thickness(0, 10, 0, 0) };
                     var starBotImage = new Image { Margin = new Thickness(0, 0, 0, 10) };
        
-                    var layout = new AbsoluteLayout { HeightRequest = 260, BackgroundColor = Color.Transparent, WidthRequest = 500, Margin = new Thickness(0, 20, 0, 0) };
+                    var layout = new AbsoluteLayout { HeightRequest = 290, BackgroundColor = Color.Transparent, WidthRequest = 500, Margin = new Thickness(0, 20, 0, 0) };
 
-                    var trophyIndexStack = new StackLayout { BackgroundColor = Color.FromHex("#32AE96"), HeightRequest = 260, WidthRequest = 50, Margin = new Thickness(20, 0, 0, 0) };
+                    var trophyIndexStack = new StackLayout { BackgroundColor = Color.FromHex("#32AE96"), HeightRequest = 280, WidthRequest = 50, Margin = new Thickness(20, 0, 0, 0) };
 
                     var dateFrame = new Frame { BackgroundColor = Color.FromHex("#32AE96"), HasShadow = false, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(5, 5, 5, 5), Margin = new Thickness(0, 10, 0, 0) };
 
-                    var trophyFrame = new Frame { HasShadow = true, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(15, 15, 15, 15), Margin = new Thickness(20, 0, 20, 0) };
+                    var trophyFrame = new Frame { HasShadow = true, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Padding = new Thickness(15, 15, 15, 15), Margin = new Thickness(20, 0, 20, 10) };
                     var trophyStack = new StackLayout { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, Margin = new Thickness(20, 20, 20, 10) };
 
                     var trophyIndexLabel = new Label { TextColor = Color.White, HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
@@ -67,7 +67,7 @@ namespace ShopList
 
                     var frameStack = new StackLayout { BackgroundColor = Color.Transparent, HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand };
 
-                    var trophyImage = new Image {Margin = new Thickness(15, 15, 15, 15) };
+                    var trophyImage = new Image {Margin = new Thickness(15, 15, 15, 15), HeightRequest = 100, WidthRequest = 100 };
 
 
                     AbsoluteLayout.SetLayoutBounds(frameStack, new Rectangle(0, 0, 1, 1));
@@ -79,7 +79,7 @@ namespace ShopList
                     AbsoluteLayout.SetLayoutBounds(trophyStack, new Rectangle(0, 0, 1, 1));
                     AbsoluteLayout.SetLayoutFlags(trophyStack, AbsoluteLayoutFlags.All);
 
-                    AbsoluteLayout.SetLayoutBounds(trophyIndexStack, new Rectangle(0, 0, 50, 260));
+                    AbsoluteLayout.SetLayoutBounds(trophyIndexStack, new Rectangle(0, 0, 50, 280));
 
                     AbsoluteLayout.SetLayoutBounds(dateFrame, new Rectangle(1, 0, 0.3, 0.2));
                     AbsoluteLayout.SetLayoutFlags(dateFrame, AbsoluteLayoutFlags.All);

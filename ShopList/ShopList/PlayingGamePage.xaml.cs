@@ -13,7 +13,6 @@ namespace ShopList
     public static class List
     {
         // Strores all the items shown to the user.
-
         public static List<int> foodList = new List<int>();
     }
 
@@ -95,7 +94,6 @@ namespace ShopList
         //public static int[] randomFoodToShow = new int[foodArrayCount];// images to put in random order.
 
       
-
         // ******************Lists needed for the post game report*******************
 
         // Stores the wrong items that were picked.
@@ -138,6 +136,7 @@ namespace ShopList
             await roundStack.TranslateTo (-this.Width, 0, 1);//hide it in the left at the start.
             await selectStack.TranslateTo(-this.Width, 0, 1);//hide it in the left at the start.
             await timeStack.TranslateTo  ( this.Width, 0, 1);//hide it in the right at the start.
+
             selectStack.Opacity = 1;// Faded in.
             roundStack.Opacity  = 1;// Faded in.
             timeStack.Opacity   = 1;// Faded in.
@@ -173,7 +172,16 @@ namespace ShopList
 
             foodToSelect = foodToFind;
 
-                if(roundCount == 1)
+          
+            //********************* GAME COMPLETE!! *************************//
+            if(foodToSelect == 177)
+            {
+                GameComplete();
+            }
+            //*********************************************************
+
+
+            if (roundCount == 1)
                 {
 
                 bool a = false;// first loop counter
@@ -261,8 +269,21 @@ namespace ShopList
 
                 //if (roundCount == 1)
                 //{
-                    await listImage.FadeTo(0, 500); // Fade out.
-                    await listLabel.FadeTo(0, 500); // Fade out.
+                   
+
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                await listImage.FadeTo(0, 500); // Fade out.
+                await listLabel.FadeTo(0, 500); // Fade out.
+            }
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                await listImage.FadeTo(0, 500); // Fade out.
+                listLabel.Opacity = 0; // Fade out.
+            }
+
                     //localLLF = false;
                 //}  
 
@@ -308,12 +329,14 @@ namespace ShopList
 
 
             //***************** DIFFCULTY VARIBLE: NUMBER OF ITEMS DISPLAYED***************************
+
             // DIFFCULTY VARIBLE VALUE CREATION
-            foodArrayCount = FoodArraySize(); // 24 for medium on 1st round.
+            foodArrayCount = FoodArraySize(); // 21 for easy, 24 for medium, 27 for hard on 1st round.
+
 
             //int[] randomL = GetRandomizedArray(foodArrayCount);// Array to store randomised index so grid is reordered each time
-           
-             List<int> temp = new List<int>(); // New temp list. 
+
+            List<int> temp = new List<int>(); // New temp list. 
 
             for (int i = 0; i < foodArrayCount; i++)
             {
@@ -403,6 +426,7 @@ namespace ShopList
 
             timeLabel.Text = "00:"+_duration;// Filler till time loads
 
+
             //Code to show game information.
             timeStack.IsVisible   = true;
             selectStack.IsVisible = true;
@@ -432,8 +456,17 @@ namespace ShopList
             mainStack.Children.Add(layout);
 
 
-            await gridLayout.FadeTo(1, 700);// Fade in.
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                await gridLayout.FadeTo(1, 700);// Fade in.
+            }
 
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                gridLayout.Opacity = 1;// Fade in.
+            }
+
+            gameInfo.Opacity = 1;// Faded in. Ensures game info stats are not shown till they're needed.
 
             //Code for game information to appear.
             await Task.WhenAll(
@@ -454,12 +487,12 @@ namespace ShopList
         private async void imageButton_Clicked(object sender, EventArgs e)
         {
 
-            if (Sound.soundFlag == true)
+            if (Sound.soundFlag == "true")
             {
                 var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
                 player.Load("NFF-choice-good.wav");
 
-                player.Play();// Cammand the play the loaded sound.
+                player.Play();// Command to play the loaded sound.
             }
 
             foodToSelect--;
@@ -489,11 +522,8 @@ namespace ShopList
             (sender as Button).IsEnabled = false;// Prevents the same item being selected more than once.
 
 
-
             string selectCountText = selectCount.ToString();           
 
-            var selButtonIndex = new Button { };
-        
             // Assign the selected button row and column inside the grid.
             var row = (int)((BindableObject)sender).GetValue(Grid.RowProperty);
             var column = (int)((BindableObject)sender).GetValue(Grid.ColumnProperty);
@@ -507,8 +537,6 @@ namespace ShopList
             string c = a + b;
 
             int z = 0;// Counter for wrong item checker.
-
-
 
 
             for (int i = 0; i < storeList.Count; i++)
@@ -536,8 +564,7 @@ namespace ShopList
 
                             // Adds right item number to right list.
                             Int32.TryParse(storeList[i].Substring(3), out int rightInt);
-                           
-
+                          
                             GameReport.rightFoodList.Add(rightInt);
                             //
 
@@ -547,7 +574,6 @@ namespace ShopList
                         // Else, will be invoked each time the selected item hasn't match with the checked agains't item in the list.
                         else
                         {
-
                             //This would be invoked if the selected button pressed was confirmed wrong once the whole list has been checked.
 
                             z++;
@@ -574,22 +600,25 @@ namespace ShopList
 
                 }
 
-
             }
+
             List<int> listRow = new List<int>();
             List<int> listColum = new List<int>(); 
 
             listRow.Add(row);
             listColum.Add(column);
 
+            var selButtonIndex = new Button {};
+
             selButtonIndex.HorizontalOptions = LayoutOptions.Start;
             selButtonIndex.VerticalOptions = LayoutOptions.Start;
             selButtonIndex.Text = selectCountText;
             selButtonIndex.BackgroundColor = Color.FromHex("#FFBC2D");
             selButtonIndex.TextColor = Color.White;
-            selButtonIndex.CornerRadius = 5;
-            selButtonIndex.WidthRequest = 25;
+            selButtonIndex.CornerRadius  = 5;
+            selButtonIndex.WidthRequest  = 25;
             selButtonIndex.HeightRequest = 25;
+            selButtonIndex.Padding = new Thickness(0, 0, 0, 0);
 
             gridLayout.Children.Add(selButtonIndex, column, row);// adds the selected item indicator 
 
@@ -655,7 +684,7 @@ namespace ShopList
                 timeUpStack.Children.Add(timeUpLabel);
                 Content = timeUpStack;
 
-                await Task.Delay(1000); // Wait 2 seconds before round finishes.
+                await Task.Delay(1000); // Wait 1 second before round finishes.
 
                 await Task.WhenAll(
                     timeUpLabel.FadeTo(0, 500),
@@ -679,7 +708,8 @@ namespace ShopList
             }
         }
 
-        public async void EndOfRound()
+
+            public async void EndOfRound()
         {
             if (foodToFind > correctCount)
             {
@@ -734,7 +764,7 @@ namespace ShopList
 
                 // Good work info displayed centered.
                 centerStack = new StackLayout { VerticalOptions = LayoutOptions.CenterAndExpand, Opacity = 0 };
-                Image centerImage = new Image { VerticalOptions = LayoutOptions.Center, Opacity = 100, WidthRequest = 200, HeightRequest = 200 };
+                Image centerImage = new Image { VerticalOptions = LayoutOptions.Center, Opacity = 100, WidthRequest = 100, HeightRequest = 100 };
                 Label centerLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 36 };
                 centerImage.Source = ("greenTick");
                 centerLabel.Text = "Nice!";
@@ -746,13 +776,18 @@ namespace ShopList
 
                 if (playerMode == "multi")
                 {
-                    Label multiLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0), HorizontalTextAlignment = TextAlignment.Center }; 
+                    Label multiLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 20), HorizontalTextAlignment = TextAlignment.Center };
+                    Label goLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0), HorizontalTextAlignment = TextAlignment.Center };
+                    Image changeImage = new Image {Source = "changeOver", HeightRequest = 100, WidthRequest = 100};
                     Button continueButton = new Button {  HeightRequest = 50, WidthRequest = 200,  HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0) };
 
                     continueButton.Clicked += Continue_Clicked;
                     continueButton.Image = "goButton";
-                    multiLabel.Text = "Now swap players \n then press the go button";
+                    multiLabel.Text = "Now swap players";
+                    goLabel.Text = "then press the go button";
                     centerStack.Children.Add(multiLabel);
+                    centerStack.Children.Add(changeImage);
+                    centerStack.Children.Add(goLabel);
                     centerStack.Children.Add(continueButton);
 
                     Content = centerStack;
@@ -768,10 +803,17 @@ namespace ShopList
 
                     await centerStack.FadeTo(1, 200);// Fade in.
 
-                    await Task.Delay(600);// time to see the image
-                    await centerStack.FadeTo(0, 200);// Fade back out.
+                    await Task.Delay(500);// time to see the image
 
-                    //await Task.Delay(500); // Waits 1 second
+                    if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        await centerStack.FadeTo(0, 200);// Fade back out.
+                    }
+
+                    if (Device.RuntimePlatform == Device.Android)
+                    {
+                        centerStack.Opacity = 0;
+                    }
 
                     Content = mainStack;
 
@@ -788,8 +830,8 @@ namespace ShopList
 
                 }
             
-            }
-        }
+            }// End of else for correct images picked.
+        }// End of method.
 
 
         private async void Continue_Clicked(object sender, EventArgs e)
@@ -837,19 +879,37 @@ namespace ShopList
 
             if (roundCount > 1)
             {
-                switch (difFlag)
+                if (foodArrayCount < 175)
                 {
-                    case "easy":
-                        arraySize = foodArrayCount + 3;
-                        break;
-                    case "medium":
-                        arraySize = foodArrayCount + 6;
-                        break;
-                    case "hard":
-                        arraySize = foodArrayCount + 9;
-                        break;
+                    switch (difFlag)
+                    {
+                        case "easy":
+                            arraySize = foodArrayCount + 3;
+                            break;
+                        case "medium":
+                            arraySize = foodArrayCount + 6;
+                            break;
+                        case "hard":
+                            arraySize = foodArrayCount + 9;
+                            break;
+                    }
+
                 }
+              
+                else
+                {
+                    arraySize = 177;// Max size
+                }
+
             }
+
+            Console.WriteLine("Image array Size: " + arraySize);
+
+            // Max number of items to show.
+            if (arraySize > 177)
+                arraySize = 177;
+
+            Console.WriteLine("Image array Size: " + arraySize);
 
             return arraySize;
         }
@@ -925,32 +985,47 @@ namespace ShopList
         }
 
 
+        public async void GameComplete()
+        {
+
+            StackLayout gameCompleteStack = new StackLayout { VerticalOptions = LayoutOptions.CenterAndExpand, Opacity = 100 };
+            Image gameCompleteImage = new Image { VerticalOptions = LayoutOptions.Center, Opacity = 100 };
+            Label gameCompleteLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 36 };
+            gameCompleteImage.Source = ("gameComplete");
+            gameCompleteLabel.Text = "Game Complete!!";
+            gameCompleteStack.Children.Add(gameCompleteImage);
+            gameCompleteStack.Children.Add(gameCompleteLabel);
+            Content = gameCompleteStack;
+
+            await Task.Delay(3000); // Wait 1 second before round finishes.
+
+            await Task.WhenAll(
+                gameCompleteLabel.FadeTo(0, 500),
+                gameCompleteImage.FadeTo(0, 500));
+
+            //Hide elements for end of round.
+            await roundStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
+            await selectStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
+            await timeStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
+
+            timeStack.IsVisible = false;
+            selectStack.IsVisible = false;
+            roundStack.IsVisible = false;
+
+            gridLayout.Children.Clear();
+            storeList.Clear();
+
+            correctCount = foodToFind;
+            await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag, playerMode));// Loads the loser page
+
+            Content = mainStack;
+
+        }
+
     }// End of Class
-
-
-
 
 }//End of namespace
 
 
 //Spare Code:
 
-
-/*
-       if (roundCount > 1)
-       {
-           switch (difFlag)
-           {
-               case "easy":
-                   foodArrayCount = foodArrayCount+3;
-                   break;
-               case "medium":
-                   foodArrayCount = foodArrayCount+6;
-                   break;
-               case "hard":
-                   foodArrayCount = foodArrayCount+9;
-                   break;
-           }
-
-       }
-       */

@@ -255,21 +255,26 @@ namespace ShopList
                     }
 
 
-                     var imageButton = new Button { HeightRequest = 100 };
+                     var imageReport = new Image { HeightRequest = 100, BackgroundColor = Color.Transparent };
 
                      itemStr = GameReport.pickedFoodList[counter].ToString();
                      int itemInt = GameReport.pickedFoodList[counter];
 
-
+                    // iOS stuff
                     if (Device.RuntimePlatform == Device.iOS)
                     {
-                        //iOS stuff
-                        imageButton.Image = (itemStr);//sets the images to go into the grid
-
-                        pickedGridLayout.Children.Add(imageButton, columnIndex, rowIndex);
-
+                        imageReport.Source = (itemStr);//sets the images to go into the grid
 
                     }
+
+                    // Android stuff
+                    if (Device.RuntimePlatform == Device.Android)
+                    {
+                        imageReport.Source = ("image" + itemStr);//sets the images to go into the grid
+
+                    }
+
+                    pickedGridLayout.Children.Add(imageReport, columnIndex, rowIndex);
 
                     //****** Right or Wrong markers on picked images list.
                     var rightOrWrongIndi = new Image { };
@@ -323,7 +328,7 @@ namespace ShopList
                         break;
                     }
 
-                    var imageButton = new Button { HeightRequest = 100 };
+                    var imagePicked = new Image { HeightRequest = 100, BackgroundColor = Color.Transparent };
 
                     shownStr = List.foodList[shownCounter].ToString();
 
@@ -331,16 +336,16 @@ namespace ShopList
                     //iOS stuff
                     if (Device.RuntimePlatform == Device.iOS)
                     {
-                        imageButton.Image = shownStr;//sets the images to go into the grid
+                        imagePicked.Source = shownStr;//sets the images to go into the grid
                     }
 
                     //Android stuff
                     if (Device.RuntimePlatform == Device.Android)
                     {
-                       imageButton.Image = "image" + shownStr;//sets the images to go into the grid
+                       imagePicked.Source = "image" + shownStr;//sets the images to go into the grid
                     }
 
-                    shoppingListGridLayout.Children.Add(imageButton, columnIndex, rowIndex);
+                    shoppingListGridLayout.Children.Add(imagePicked, columnIndex, rowIndex);
 
                     shownCounter++;
 
@@ -830,22 +835,22 @@ namespace ShopList
                         }
 
                         var trophyStack = new StackLayout { };
-                        var imageButton = new Button {HeightRequest = 100, HorizontalOptions = LayoutOptions.Center};
+                        var imageTrophy = new Image {HeightRequest = 100, HorizontalOptions = LayoutOptions.Center};
                         var trophyLabel = new Label { FontAttributes = FontAttributes.Bold, FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)), HorizontalOptions = LayoutOptions.Center };
 
-                        trophyStack.Children.Add(imageButton);
+                        trophyStack.Children.Add(imageTrophy);
                         trophyStack.Children.Add(trophyLabel);
 
                         //iOS stuff
                         if (Device.RuntimePlatform == Device.iOS)
                         {
-                            imageButton.Image = newTrophiesList[counter].TrophyPic;//sets the images to go into the grid
+                            imageTrophy.Source = newTrophiesList[counter].TrophyPic;//sets the images to go into the grid
                         }
 
                         //Android stuff
                         if (Device.RuntimePlatform == Device.Android)
                         {
-                           imageButton.Image = newTrophiesList[counter].TrophyPic;//sets the images to go into the grid
+                           imageTrophy.Source = newTrophiesList[counter].TrophyPic;//sets the images to go into the grid
                         }
 
 

@@ -84,6 +84,9 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.5.231</Version>
     </PackageReference>
+    <PackageReference Include="System.Threading.Tasks">
+      <Version>4.3.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Utils\ReflectedProxy.cs" />
     <Compile Include="Utils\ResourceManagerEx.cs" />
     <Compile Include="Renders\BottomBarPageRenderer.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -339,8 +343,7 @@
     <AndroidResource Include="Resources\drawable\topScore.png" />
     <AndroidResource Include="Resources\drawable\goButton.png" />
     <AndroidResource Include="Resources\drawable\multiIcon.png" />
-    <AndroidResource Include="Resources\drawable\navList.png" />
-    <AndroidResource Include="Resources\drawable\navTrophy.png" />
+    <AndroidResource Include="Resources\drawable\navAward.png" />
     <AndroidResource Include="Resources\drawable\trophy.png" />
     <AndroidResource Include="Resources\drawable\greyPlayerSelect.png" />
     <AndroidResource Include="Resources\drawable\playerSelect.png" />
@@ -357,7 +360,24 @@
     <AndroidResource Include="Resources\drawable\proHard20Award.png" />
     <AndroidResource Include="Resources\drawable\silver10Award.png" />
     <AndroidResource Include="Resources\drawable\noviceAward.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon2.png" />
+    <AndroidResource Include="Resources\drawable\navList.png" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon2.png" />
+    <AndroidResource Include="Resources\drawable\iconRound.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\iconr.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\iconr.png" />
+    <AndroidResource Include="Resources\drawable\linkedin.png" />
+    <AndroidResource Include="Resources\drawable\github.png" />
+    <AndroidResource Include="Resources\drawable\twitter.png" />
+    <AndroidResource Include="Resources\drawable\changeOver.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\iconr.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\iconr.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\iconr.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon2.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -367,6 +387,9 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
     <Folder Include="Utils\" />
     <Folder Include="Renders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\NFF-choice-good.wav" />
   </ItemGroup>
   <Import Project="..\ShopList\ShopList.projitems" Label="Shared" />
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

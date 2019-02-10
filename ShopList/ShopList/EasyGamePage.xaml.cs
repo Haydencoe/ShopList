@@ -36,6 +36,9 @@ namespace ShopList
             singleplayer.TextColor = Color.Black;
             multiplayer.TextColor = Color.Gray;
 
+            singleSelected = true;
+            multiSelected = false;
+
             sqlDatabase = new SQLDatabase();
 
             try

@@ -30,19 +30,30 @@ namespace ShopList
 
         protected override void OnAppearing()
         {
+            singleIcon.Source = ImageSource.FromFile("playerSelect");
+            singleIcon.ScaleTo(1, 1);
+            multiIcon.Source = ImageSource.FromFile("greyPlayerSelect");
+
+            singleplayer.TextColor = Color.Black;
+            multiplayer.TextColor = Color.Gray;
+
+            singleSelected = true;
+            multiSelected = false;
 
 
             sqlDatabase = new SQLDatabase();
 
             try { 
-            mediumHighScore = sqlDatabase.GetMediumHighscore(1);
+           
+             mediumHighScore = sqlDatabase.GetMediumHighscore(1);
 
             roundText.Text = "Round " + mediumHighScore.Round;
+            roundText.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
 
              if (!string.IsNullOrEmpty(mediumHighScore.Name))
              nameText.Text = "By " + mediumHighScore.Name;
 
-            }
+            }// End of try.
 
             catch
             {
@@ -51,11 +62,7 @@ namespace ShopList
                 nameText.Text = "";
             }
 
-
-
-
              SpinMe();
-
         }
 
 

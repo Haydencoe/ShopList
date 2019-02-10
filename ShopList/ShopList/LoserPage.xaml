@@ -6,7 +6,7 @@
              >
     <ContentPage.Content>
     <ScrollView>
-       <StackLayout x:Name="endRound" VerticalOptions="Center">
+       <StackLayout x:Name="endRound" VerticalOptions="Center" BackgroundColor="White">
 
      
              <Label 

@@ -11,6 +11,21 @@ namespace ShopList
         {
             InitializeComponent();
 
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                this.BarTextColor = Color.Black;
+                this.BarIndicatorColor = Color.FromHex("#2196F3");
+                this.BarBackgroundColor = Color.White;
+            }
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                this.BarTextColor = Color.White;
+                this.BarIndicatorColor = Color.White;
+                this.BarBackgroundColor = Color.FromHex("#2196F3");
+            }
+
             this.CurrentPageChanged += PageChanged;
 
             void PageChanged(object sender, EventArgs args)

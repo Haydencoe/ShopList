@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace ShopList.Droid
 {
-    [Activity(Label = "ShopList", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "ShopList", Icon = "@mipmap/icon2", RoundIcon = "@mipmap/iconr",  Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -21,7 +21,12 @@ namespace ShopList.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        
         }
+
+        public override void OnBackPressed() { }
+
     }
+
 }
 

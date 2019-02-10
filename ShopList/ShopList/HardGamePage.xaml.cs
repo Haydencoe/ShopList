@@ -37,17 +37,32 @@ namespace ShopList
 
             blue.Opacity = 0;
 
+
+        }
+
+        protected override void OnAppearing()
+        {
+
+            singleIcon.Source = ImageSource.FromFile("playerSelect");
+            singleIcon.ScaleTo(1, 1);
+            multiIcon.Source = ImageSource.FromFile("greyPlayerSelect");
+
+            singleplayer.TextColor = Color.Black;
+            multiplayer.TextColor = Color.Gray;
+
+            singleSelected = true;
+            multiSelected = false;
+
             sqlDatabase = new SQLDatabase();
 
             try
             {
-
                 hardHighScore = sqlDatabase.GetHardHighscore(1);
-
                 roundText.Text = "Round " + hardHighScore.Round;
 
                 if (!string.IsNullOrEmpty(hardHighScore.Name))
                     nameText.Text = "By " + hardHighScore.Name;
+
             }
 
             catch
@@ -57,11 +72,6 @@ namespace ShopList
                 nameText.Text = "";
             }
 
-
-        }
-
-        protected override void OnAppearing()
-        {
 
             SpinMe();
 

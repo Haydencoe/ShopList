@@ -14,7 +14,7 @@ namespace ShopList
         {
             InitializeComponent();
 
-            if (Sound.soundFlag == false)
+            if (Sound.soundFlag == "false")
             {
                 soundButton.Image = "toggleOff";
                 soundLabel.Text = "Sound off";
@@ -22,7 +22,7 @@ namespace ShopList
             }
 
 
-            if (Sound.soundFlag == true)
+            if (Sound.soundFlag == "true")
             {
                 soundButton.Image = "toggleOn";
                 soundLabel.Text = "Sound on";
@@ -51,12 +51,12 @@ namespace ShopList
 
         private void SoundButton_Clicked(object sender, EventArgs e)
         {
-            if (Sound.soundFlag == true)
+            if (Sound.soundFlag == "true")
             {
                 soundButton.Image = "toggleOff";
                 soundLabel.Text = "Sound off";
                 soundImage.Source = "setNoSound";
-                Sound.soundFlag = false;
+                Sound.soundFlag = "false";
                
 
             }
@@ -66,7 +66,7 @@ namespace ShopList
                 soundButton.Image = "toggleOn";
                 soundLabel.Text = "Sound on";
                 soundImage.Source = "setSound";
-                Sound.soundFlag = true;
+                Sound.soundFlag = "true";
 
             }
 
@@ -75,7 +75,7 @@ namespace ShopList
         }
 
 
-        private async void SaveSound(bool soundSave)
+        private async void SaveSound(string soundSave)
         {
 
             string soundSaveStr = soundSave.ToString();

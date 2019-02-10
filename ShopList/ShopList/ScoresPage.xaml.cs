@@ -34,6 +34,22 @@ namespace ShopList
         {
             InitializeComponent();
 
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                this.BarTextColor = Color.Black;
+                this.BarIndicatorColor = Color.FromHex("#2196F3");
+                this.BarBackgroundColor = Color.White;
+
+            }
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                this.BarTextColor = Color.White;
+                this.BarIndicatorColor = Color.White;
+                this.BarBackgroundColor = Color.FromHex("#2196F3");
+            }
+
+
            // var metrics = DeviceDisplay.ScreenMetrics;// Not needed but maybe useful else where.
             //var width = metrics.Width;
 

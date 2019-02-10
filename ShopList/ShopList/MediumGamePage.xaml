@@ -11,7 +11,7 @@
            
                 <Image x:Name="topScore" Source="topScore"></Image>    
                 <Label Text="Current Top Score on Medium:" Margin="0,20,0,0"></Label>
-                <Label x:Name="roundText" Text="Round 0" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+                <Label x:Name="roundText" Text="" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="Large" HorizontalTextAlignment="Center"></Label>
                 <Label x:Name="nameText" Text="" HorizontalOptions="Center"></Label>
             
             </StackLayout>
