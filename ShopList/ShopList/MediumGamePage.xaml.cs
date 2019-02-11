@@ -143,10 +143,6 @@ namespace ShopList
         }
 
 
-
-
-
-
     } // end of Class.
 
 }// end of namespace

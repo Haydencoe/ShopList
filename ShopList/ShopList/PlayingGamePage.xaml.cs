@@ -142,10 +142,7 @@ namespace ShopList
             timeStack.Opacity   = 1;// Faded in.
 
             // Code for game information to be hidden
-            //timeStack.Opacity     = 0;// Faded out.
-            // selectStack.Opacity = 0;// Faded out.
-            //roundStack.Opacity  = 0;// Faded out.
-            //
+
             gridLayout.Opacity  = 0;// Faded out.
 
             int x = List.foodList.Count;        
@@ -221,11 +218,7 @@ namespace ShopList
                     {
                         await Task.Delay(500);// time to load image
                     }
-                    // if (localLLF == false)
-                    //{//
-                    // await listLabel.FadeTo(1, 500);// Fade in.
-                    //
-                    //}
+                   
 
                     await listImage.FadeTo(1, 500);// Fade in.
 
@@ -284,11 +277,7 @@ namespace ShopList
                 listLabel.Opacity = 0; // Fade out.
             }
 
-                    //localLLF = false;
-                //}  
 
-                  
-            
            // }// End of for loop.
 
 
@@ -340,11 +329,12 @@ namespace ShopList
 
             for (int i = 0; i < foodArrayCount; i++)
             {
-                // Load the temp list with the first count of items to fill the gtid with from the randomFoodToShow order to ensure the items that were shown appear in the grid.
+                // Load the temp list with the first count of items to fill the grid with from the randomFoodToShow order to ensure the items that were shown appear in the grid.
                 temp.Add(randomFoodToShow[i]);
             }
 
             int[] randomL = temp.ToArray(); // Convert the list to an array for shuffle.
+
 
             Shuffle<int>(randomL); // Shuffle the array each time so the grid has a new layout each round
 
@@ -720,8 +710,11 @@ namespace ShopList
                 timeStack.IsVisible   = false;
                 selectStack.IsVisible = false;
                 roundStack.IsVisible  = false;
-              
-                gridLayout.Children.Clear();
+
+                gridStack.Children.Clear(); // By removing the grid from the current context the speed of removing the elements from the gird is improved dramatically. 
+                gridLayout.Children.Clear(); // Slow with large content.
+                gridStack.Children.Add(gridLayout);// Adds the grid view back to the current page context.
+
                 storeList.Clear();
 
                 await Navigation.PushModalAsync(new LoserPage(correctCount, foodToFind, roundCount, difFlag, playerMode));// Loads the loser page
@@ -778,8 +771,8 @@ namespace ShopList
                 {
                     Label multiLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 20), HorizontalTextAlignment = TextAlignment.Center };
                     Label goLabel = new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0), HorizontalTextAlignment = TextAlignment.Center };
-                    Image changeImage = new Image {Source = "changeOver", HeightRequest = 100, WidthRequest = 100};
-                    Button continueButton = new Button {  HeightRequest = 50, WidthRequest = 200,  HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0) };
+                    Image changeImage = new Image {Source = "changeOver", HeightRequest = 80, WidthRequest = 80};
+                    Button continueButton = new Button { HeightRequest = 60, WidthRequest = 60,  HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Opacity = 100, FontSize = 20, Margin = new Thickness(0, 20, 0, 0), BackgroundColor = Color.Transparent};
 
                     continueButton.Clicked += Continue_Clicked;
                     continueButton.Image = "goButton";
@@ -821,9 +814,13 @@ namespace ShopList
                     foodToSelect = 0;// resets the left to select amount  to 0
                     selectCount  = 0;// resets the select amount  to 0
 
-                    gridLayout.Children.Clear();
-                    storeList.Clear();
 
+                    gridStack.Children.Clear(); // By removing the grid from the current context the speed of removing the elements from the gird is improved dramatically. 
+                    gridLayout.Children.Clear(); // Slow with large content.
+                    gridStack.Children.Add(gridLayout);// Adds the grid view back to the current page context.
+
+
+                    storeList.Clear();
                     roundCount++;
 
                     listImages();// Calls for the next item to be added and shown.
@@ -837,8 +834,6 @@ namespace ShopList
         private async void Continue_Clicked(object sender, EventArgs e)
         {
             await centerStack.FadeTo(0, 200);// Fade back out.
-
-            //await Task.Delay(500); // Waits 1 second
 
             Content = mainStack;
 
@@ -856,7 +851,7 @@ namespace ShopList
         }
 
 
-        // Decides how many items to display per round of the game.
+        // Decides how many items to display in the grid per round of the game.
         public int FoodArraySize()
         {
             int arraySize = 0;
@@ -1004,9 +999,9 @@ namespace ShopList
                 gameCompleteImage.FadeTo(0, 500));
 
             //Hide elements for end of round.
-            await roundStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
-            await selectStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
-            await timeStack.TranslateTo(-this.Width, 0, 1);//hide it at the start
+            await roundStack.TranslateTo (-this.Width, 0, 1);//hide it 
+            await selectStack.TranslateTo(-this.Width, 0, 1);//hide it 
+            await timeStack.TranslateTo  (-this.Width, 0, 1);//hide it
 
             timeStack.IsVisible = false;
             selectStack.IsVisible = false;

@@ -99,9 +99,11 @@
               
            
             <ScrollView x:Name="scroll" Margin="0,30,0,0">
+               <StackLayout x:Name="gridStack">
                 <Grid x:Name="gridLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,20,20" BackgroundColor="Transparent">
 
                 </Grid>
+               </StackLayout>
             </ScrollView>
 
           
