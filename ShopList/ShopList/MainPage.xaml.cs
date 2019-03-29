@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using PCLStorage;
-using Newtonsoft.Json;
+
+
+
 
 namespace ShopList
 {
@@ -37,6 +39,8 @@ namespace ShopList
 
         public String difFlag = "medium";
 
+        public int todayConfirm = 0;
+
         public StackLayout aboStackBlack = new StackLayout
         {
             BackgroundColor = Color.FromHex("#CC4c4c4c")
@@ -58,21 +62,48 @@ namespace ShopList
                 sound.Image = "sound";
         }
 
-        //public Image image = new Image { Source = "logo" };
+        public static List<Data> localData = new List<Data>();
+        public SQLDatabase sqlDatabase;
 
         public MainPage()
         {
             InitializeComponent();
 
+            // DATA gathering ****
+
+            sqlDatabase = new SQLDatabase();
+            localData = sqlDatabase.GetAllData();
+            if (localData.Count > 0)
+            {
+                foreach (Data data in localData)
+                {
+                    if (data.CreatedOn == DateTime.Today)
+                    {
+                        todayConfirm = 1;
+                    }
+                
+                }
+            }
+
+
+            if (todayConfirm == 0)
+            {
+                if (localData.Count < 30)
+                {
+                    Data data = new Data();
+                    data.CreatedOn = DateTime.Today;
+
+                    sqlDatabase.AddData(data);
+                }
+            }
+
+            // DATA gathering ****
 
             if (Device.RuntimePlatform == Device.Android)
             {
                 optionsFrame.Margin = new Thickness(0, -40, 0, 0);
             }
 
-
-            //Sound.soundFlag = Load().GetAwaiter().GetResult();
-            //Sound.soundFlag = await Load();// load settings in. 
 
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -84,7 +115,7 @@ namespace ShopList
             if (Sound.soundFlag == "true")
                 sound.Image = "sound";
 
-            plusFrame.TranslateTo(0, 500, 1);
+            plusFrame.TranslateTo(0, 700, 1);
 
             infoFrame.ScaleTo(0.2, 1);
             infoFrame.IsVisible = false;
@@ -155,7 +186,11 @@ namespace ShopList
 
            return await Task.FromResult(settingsContent);
 
+
+
         }//End of load.
+
+
 
         private async void newGameButton_Clicked(object sender, EventArgs e)
         {
@@ -163,16 +198,12 @@ namespace ShopList
         }
 
 
-
-
         private async void scoresButton_Clicked(object sender, EventArgs e)
         {
             notFrame.Opacity = 0;
-            //notFrame.IsVisible = true;
+           
             Notifications.notFlag = 0;
 
-            //notFrame.Source = null;
-            //await Navigation.PushAsync(new ScoresPage(flag));
             await Navigation.PushAsync(new BottomNavigationPage());
         }
     
@@ -222,11 +253,7 @@ namespace ShopList
             AbsoluteLayout.SetLayoutBounds(aboStackBlack, new Rectangle(0.5, 0.5, 1, 1));
             AbsoluteLayout.SetLayoutFlags(aboStackBlack, AbsoluteLayoutFlags.All);
 
-            //
-            //AbsoluteLayout.SetLayoutBounds(difStack, new Rectangle(0.5, Content.Height, 1, 1));
-            //AbsoluteLayout.SetLayoutFlags(difStack, AbsoluteLayoutFlags.All);
-            //
-           
+         
             await Task.WhenAll(
             
                 playFrame.TranslateTo(0, -this.Height, 250),
@@ -234,16 +261,7 @@ namespace ShopList
 
           );
 
-            // aboStack.Children.Add(back);
-            //playFrame.Opacity = 0;
-            //optionsFrame.Opacity = 0;
-
-            //layout.Children.Add(playFrame);
-            //layout.Children.Add(optionsFrame);
-
-            //layout.Children.Add(difStack);//
-
-
+         
             aboStack.Children.Add(logoStack);
             aboStack.Children.Add(midStack);
            
@@ -307,13 +325,6 @@ namespace ShopList
 
                    plusFrame.RotateTo(45, 500)
 
-
-                //blackBox.ScaleTo(0.1, 1),
-                //aboStackBlack.FadeTo(0.9, 100),
-                //blackBox.ScaleTo(1, 1000)
-                   
-
-
                 );
 
                 plusFrame.Rotation = 45;
@@ -322,31 +333,68 @@ namespace ShopList
                 //Notification alert
                 if (Notifications.notFlag > 0)
                 {
-                   
-                    switch (Notifications.notFlag)
+
+                    Console.WriteLine("Notifications Count: " + Notifications.notFlag);
+
+                    if (Notifications.notFlag > 0 && Notifications.notFlag < 10)
                     {
-                        case 1:
-                            notFrame.Source = "not1";
-                            break;
-                        case 2:
-                            notFrame.Source = "not2";
-                            break;
-                        case 3:
-                            notFrame.Source = "not3";
-                            break;
-                    }
+                        Console.WriteLine("if entered");
 
 
+                        switch (Notifications.notFlag)
+                        {
+                            case 1:
+                                notFrame.Source = "not1";
+                                break;
+                            case 2:
+                                notFrame.Source = "not2";
+                                break;
+                            case 3:
+                                notFrame.Source = "not3";
+                                break;
+                            case 4:
+                                notFrame.Source = "not4";
+                                break;
+                            case 5:
+                                notFrame.Source = "not5";
+                                break;
+                            case 6:
+                                notFrame.Source = "not6";
+                                break;
+                            case 7:
+                                notFrame.Source = "not7";
+                                break;
+                            case 8:
+                                notFrame.Source = "not8";
+                                break;
+                            case 9:
+                                notFrame.Source = "not9";
+                                break;
+                        }
+
+                        await Task.WhenAll(
+
+                            notFrame.TranslateTo(120, -40, 1),
+                            notFrame.FadeTo(1, 500)
                    
-                    await Task.WhenAll(
 
-                        notFrame.TranslateTo(120, -40, 1),
-                        //notLabel.TranslateTo(120, -20, 1),
+                         );
 
-                        notFrame.FadeTo(1, 500)
-                       // notLabel.FadeTo(1, 500)
+                    }// End of if.
 
-                );
+                    else
+                    {
+                        Console.WriteLine("else entered");
+
+                        notFrame.Source = "not9Plus";
+
+                        await Task.WhenAll(
+
+                            notFrame.TranslateTo(120, -40, 1),
+                            notFrame.FadeTo(1, 500)
+
+                      );
+                    }
 
                 }//End of if
                     
@@ -375,17 +423,13 @@ namespace ShopList
         private async void PlusButton_Clicked(object sender, EventArgs e)
         {
 
-            //playFrame.Opacity = 1;
-            //optionsFrame.Opacity = 1;
-
-
             a = 0;
 
             playFrame.IsVisible = true;
             optionsFrame.IsVisible = true;
 
             notFrame.Opacity = 0;
-            //notFrame.IsVisible = false;
+
             await Task.WhenAll(
 
                    
@@ -401,35 +445,21 @@ namespace ShopList
                     soundFrame.ScaleTo(0, 250),
                     soundFrame.TranslateTo(80, 20, 250),
 
-
-
-
-
-
                    plusFrame.RelRotateTo(-45, 500)
-
 
                 );
 
              
-
-
-
                 plus.Image = "plus";
-
 
 
             logoImage.Source = ImageSource.FromFile("logo");
 
-
             infoFrame.IsVisible = false;
 
-
-             plusFlag = false;// Flag for doing an options toggle switch NOT NEEDED
+            plusFlag = false;// Flag for doing an options toggle switch NOT NEEDED
 
          
-           
-
             //Put the buttons back
             await Task.WhenAll(
 
@@ -441,50 +471,24 @@ namespace ShopList
                   optionsFrame.TranslateTo(0, 15, 500)
 
 
-
               );
-
 
             // Put layout back to normal.
 
             layout.Children.Remove(aboStack);
-            //layout.Children.Remove(difStack);
 
             layout.Children.Remove(notFrame);
-            //aboStack.Children.Remove(image);
-            //aboStack.Children.Remove(back);
-
-            //layout.Children.Remove(playFrame);
-            //layout.Children.Remove(optionsFrame);
-
+         
             layout.Children.Remove(buttonLayout);
-
-            // layout.Children.Remove(glowImage);
-
 
             layout.Children.Remove(aboStackBlack);
 
-            //fullStack.Children.Add(back);
-
-
-            //back.Children.Add(playFrame);
-            //back.Children.Add(optionsFrame);
             back.Children.Add(logoStack);
 
-            //back.Children.Add(playFrame);
-            //back.Children.Add(optionsFrame);
-
             back.Children.Add(midStack);
-            //back.Children.Add(buttonLayout);
-
-
-
+         
             back.Children.Add(difStack);
-            //back.Children.Add(glowAbo);
-
-
-            // back.Children.Add(difStack);
-
+         
             Content = back;
 
             await Task.WhenAll(
@@ -494,7 +498,7 @@ namespace ShopList
 
         }
 
-      
+
 
         public static async Task<string> ReadFileContent(string fileName, IFolder rootFolder)
         {
@@ -525,7 +529,6 @@ namespace ShopList
             await file.WriteAllTextAsync(soundSaveStr);
 
         }
-
 
     }// End of Class
 

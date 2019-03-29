@@ -45,6 +45,7 @@ namespace ShopList
                 sqlDatabase.DeleteAllMediumHighscores();
                 sqlDatabase.DeleteAllHardHighscores();
 
+
             }
 
         }

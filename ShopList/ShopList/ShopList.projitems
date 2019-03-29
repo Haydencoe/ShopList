@@ -153,5 +153,6 @@
       <DependentUpon>TrophiesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Trophies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
   </ItemGroup>
 </Project>

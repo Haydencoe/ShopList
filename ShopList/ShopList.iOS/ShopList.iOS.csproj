@@ -27,6 +27,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>ShopList</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -37,6 +39,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer: hayden Coe (QZP4MN83XP)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,8 +63,9 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>ShopList</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -73,7 +77,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: hayden Coe (QZP4MN83XP)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
@@ -84,8 +88,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: Hayden Coe (H9S3DCZ8MY)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
@@ -471,9 +474,6 @@
     <ImageAsset Include="Assets.xcassets\easyText.imageset\easyText.png" />
     <ImageAsset Include="Assets.xcassets\greenTick.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\greenTick.imageset\greenTick.png" />
-    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\greenTick.png" />
-    <ImageAsset Include="Assets.xcassets\hardGlow.imageset\hardGlow.png" />
     <ImageAsset Include="Assets.xcassets\hardText.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\hardText.imageset\hardText.png" />
     <ImageAsset Include="Assets.xcassets\info.imageset\Contents.json" />
@@ -510,9 +510,6 @@
     <ImageAsset Include="Assets.xcassets\mediumGlow.imageset\mediumGlow.png" />
     <ImageAsset Include="Assets.xcassets\mediumText.imageset\mediumText.png" />
     <ImageAsset Include="Assets.xcassets\noSound.imageset\noSound.png" />
-    <ImageAsset Include="Assets.xcassets\not1.imageset\not1.png" />
-    <ImageAsset Include="Assets.xcassets\not2.imageset\not2.png" />
-    <ImageAsset Include="Assets.xcassets\not3.imageset\not3.png" />
     <ImageAsset Include="Assets.xcassets\noTime.imageset\noTime.png" />
     <ImageAsset Include="Assets.xcassets\options.imageset\options.png" />
     <ImageAsset Include="Assets.xcassets\plus.imageset\plus.png" />
@@ -603,6 +600,27 @@
     <ImageAsset Include="Assets.xcassets\changeOver.imageset\swap-3.png" />
     <ImageAsset Include="Assets.xcassets\gameComplete.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\gameComplete.imageset\confetti-3.png" />
+    <ImageAsset Include="Assets.xcassets\goldfishAward.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\goldfishAward.imageset\fish-bowl-2.png" />
+    <ImageAsset Include="Assets.xcassets\not4.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not5.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not6.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not7.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not8.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not9.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not1.imageset\Design-13.png" />
+    <ImageAsset Include="Assets.xcassets\not2.imageset\Design-12.png" />
+    <ImageAsset Include="Assets.xcassets\not3.imageset\Design-11.png" />
+    <ImageAsset Include="Assets.xcassets\not4.imageset\Design-10.png" />
+    <ImageAsset Include="Assets.xcassets\not5.imageset\Design-9.png" />
+    <ImageAsset Include="Assets.xcassets\not6.imageset\Design-8.png" />
+    <ImageAsset Include="Assets.xcassets\not7.imageset\Design-7.png" />
+    <ImageAsset Include="Assets.xcassets\not8.imageset\Design-6.png" />
+    <ImageAsset Include="Assets.xcassets\not9.imageset\Design-5.png" />
+    <ImageAsset Include="Assets.xcassets\not9Plus.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\not9Plus.imageset\Design-4.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\mail.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -612,7 +630,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
     <PackageReference Include="CarouselView.FormsPlugin">
       <Version>5.2.0</Version>
     </PackageReference>
@@ -628,9 +646,6 @@
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer">
       <Version>1.3.0</Version>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Plugin.BluetoothLE">
       <Version>6.2.3</Version>
     </PackageReference>
@@ -642,6 +657,18 @@
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.5.231</Version>
+    </PackageReference>
+    <PackageReference Include="Network">
+      <Version>6.1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Bluetooth">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Messaging">
+      <Version>5.2.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -887,9 +914,22 @@
     <Folder Include="Assets.xcassets\github.imageset\" />
     <Folder Include="Assets.xcassets\changeOver.imageset\" />
     <Folder Include="Assets.xcassets\gameComplete.imageset\" />
+    <Folder Include="Assets.xcassets\goldfishAward.imageset\" />
+    <Folder Include="Assets.xcassets\not4.imageset\" />
+    <Folder Include="Assets.xcassets\not5.imageset\" />
+    <Folder Include="Assets.xcassets\not6.imageset\" />
+    <Folder Include="Assets.xcassets\not7.imageset\" />
+    <Folder Include="Assets.xcassets\not8.imageset\" />
+    <Folder Include="Assets.xcassets\not9.imageset\" />
+    <Folder Include="Assets.xcassets\not9Plus.imageset\" />
+    <Folder Include="Assets.xcassets\email.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\NFF-choice-good.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\ShopList\ShopList.projitems" Label="Shared" />

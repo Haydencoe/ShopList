@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCLStorage;
-using Newtonsoft.Json;
+
 
 using Naxam.Controls.Forms;
 
@@ -29,6 +29,8 @@ namespace ShopList
 
         public int a = 0;
 
+        public static List<Data> localData = new List<Data>();
+        public SQLDatabase sqlDatabase;
 
         public ScoresPage(int flag)
         {
@@ -37,7 +39,7 @@ namespace ShopList
             if (Device.RuntimePlatform == Device.iOS)
             {
                 this.BarTextColor = Color.Black;
-                this.BarIndicatorColor = Color.FromHex("#2196F3");
+                this.BarIndicatorColor = Color.FromHex("#2196F3");// Dodger Blue
                 this.BarBackgroundColor = Color.White;
 
             }
@@ -46,7 +48,7 @@ namespace ShopList
             {
                 this.BarTextColor = Color.White;
                 this.BarIndicatorColor = Color.White;
-                this.BarBackgroundColor = Color.FromHex("#2196F3");
+                this.BarBackgroundColor = Color.FromHex("#2196F3");// Dodger Blue
             }
 
 
@@ -56,8 +58,25 @@ namespace ShopList
 
         }
 
+        protected override void OnAppearing()
+        {
+            //**** Data Gathering ******************** 
+            sqlDatabase = new SQLDatabase();
+            localData = sqlDatabase.GetAllData();
 
+            foreach (Data data in localData)
+            {
+                if (data.CreatedOn == DateTime.Today)
+                {
+                    data.HighscoresViewed = data.HighscoresViewed + 1;
 
+                    sqlDatabase.UpdateData(data);
+
+                }
+            }
+            //**** Data Gathering ******************** 
+
+        }
 
     }// End of class.          
 

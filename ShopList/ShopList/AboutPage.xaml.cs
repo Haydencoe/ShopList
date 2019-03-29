@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using Plugin.Messaging;
+using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,10 +13,17 @@ namespace ShopList
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutPage : ContentPage
     {
+        public SQLDatabase sqlDatabase;
+        public int meCLicked = 0;
+        public static List<Data> localData = new List<Data>();
 
         public AboutPage()
         {
             InitializeComponent();
+
+            sqlDatabase = new SQLDatabase();
+            localData = sqlDatabase.GetAllData();
+
 
             Animation();
 
@@ -25,10 +32,14 @@ namespace ShopList
             aboutLabel.Text =
 
                 "I'm Hayden Coe, I created this app called Shoplist, Shoplist has been made cross-platform using Xamarin Forms. It was created for use in my Computer Science BSc project at the University of Lincoln, researching the benifits of educational apps in primary education." +
-                "\n\nIf you have any questions, hit me up on my socials!"+
-                "\n\n © Hayden Coe 2018. ";
+                "\n\nIf you have any questions, hit me up on my socials!" +
+                "\n\n © Hayden Coe 2018. " +
+                "\n\n\nIf you would like to help with my research you can email me a report of the data collected about your usage of the app." +
+                "\nThe report is a maximum of 30 days of use and includes: Daily Total games played, highscores view amount, trophies view amount and highest score reached.";
+
 
             aboutLabel.HorizontalTextAlignment = TextAlignment.Start;
+
 
 
             creditLabel.Text =
@@ -80,10 +91,61 @@ namespace ShopList
             Device.OpenUri(new Uri("https://github.com/haydencoe"));
         }
 
-        public void Me_Clicked(object sender, EventArgs e)
+        public async void Me_Clicked(object sender, EventArgs e)
+        {
+            meCLicked++;
+
+            if (meCLicked == 5)
+            {
+                await Me.RotateTo(360, 2000);
+                Me.Rotation = 0;
+                meCLicked = 0;
+            }
+        }
+
+
+        
+
+        public void Email_Clicked(object sender, EventArgs e)
         {
 
+
+
+            String emailStartText = "Hi Hayden, here's my app usage report:";
+            string emailBodyText;
+
+            List<String> localString = new List<String>();
+            int counter = 0;
+
+            foreach (Data data in localData)
+            {
+                counter++;
+
+                string a = "\n\nDay " + counter + ": " + " Games played: " + data.GamesPlayed + " Highscores Viewed: " + data.HighscoresViewed +
+                    " Trophies Viewed: " + data.TrophiesViewed + " Highest Round: " + data.RoundCountHigh;
+
+                localString.Add(a);
+
+            }
+
+            emailBodyText = String.Join(String.Empty, localString);
+
+
+            var email = new EmailMessageBuilder()
+            .To("shoplistgameapp@gmail.com")
+            .Subject("ShopList App Usage Report")
+            .Body(emailStartText+emailBodyText)
+            .Build();
+
+            var emailTask = CrossMessaging.Current.EmailMessenger;
+
+            emailTask.SendEmail(email);
+
+            Console.WriteLine("Email Click");
         }
+
+
+
 
         public async void Animation()
         {

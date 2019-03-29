@@ -5,8 +5,13 @@ using Xamarin.Forms;
 
 using Plugin.BLE;
 
+
+
 using Plugin.BLE.Abstractions.Contracts;
 using Plugin.BLE.Abstractions.Exceptions;
+
+//using CoreBluetooth;
+//using MultipeerConnectivity;
 
 
 namespace ShopList
@@ -19,7 +24,7 @@ namespace ShopList
 
     }
 
-        public partial class BluetoothScreenPage : ContentPage
+    public partial class BluetoothScreenPage : ContentPage
     {
 
         IAdapter adapter;
@@ -27,7 +32,7 @@ namespace ShopList
         ObservableCollection<IDevice> list;
         IDevice device;
 
-
+       
 
         public BluetoothScreenPage()
         {
@@ -40,25 +45,34 @@ namespace ShopList
             DevicesList.ItemsSource = list;
 
 
+             
+
+
+
         }
 
 
-        private async void searchDevice(object sender, EventArgs and)
+      
+            private async void searchDevice(object sender, EventArgs and)
         {
             if (bluetoothBLE.State == BluetoothState.Off)
             {
-                await DisplayAlert(" Attention ", " Bluetooth disabled ", " OK ");
+                await DisplayAlert("Attention", "Your Bluetooth is disabled ", " OK ");
             }
             else
             {
+
+
                 list.Clear();
 
-                adapter.ScanTimeout = 10000;
-                adapter.ScanMode = ScanMode.Balanced;
+                adapter.ScanTimeout = 20000;
+                //adapter.ScanMode = ScanMode.Balanced;
 
+                adapter.ScanMode = ScanMode.Balanced;
 
                 adapter.DeviceDiscovered += (obj, a) =>
                 {
+                    Console.WriteLine(a.Device);
                     if (!list.Contains(a.Device))
                         list.Add(a.Device);
                 };
@@ -69,11 +83,13 @@ namespace ShopList
 
         }
 
+
+   
         private async void DevicesList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             device = DevicesList.SelectedItem as IDevice;
 
-            var result = await DisplayAlert(" WARNING ", " Do you want to connect to this device? ", " Connect ", " Cancel ");
+            var result = await DisplayAlert("WARNING", "Are you sure you want to connect to this device?", "Connect", "Cancel");
 
             if (!result)
                 return;
@@ -103,6 +119,14 @@ namespace ShopList
         }
 
 
+   
 
-    }
-}
+        private async void Done_Clicked(object sender, EventArgs e)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync(true);
+        }
+    
+
+   
+    }// End of class.
+}// End of namespace.

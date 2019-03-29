@@ -24,10 +24,8 @@
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>ShopList</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.companyname.ShopList</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -36,5 +34,13 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>This app needs to access Bluetooth.</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>gamekit</string>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.haydencoe.ShopList</string>
 </dict>
 </plist>

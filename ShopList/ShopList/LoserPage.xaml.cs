@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+
 using PCLStorage;
 using System.Threading.Tasks;
 using DLToolkit.Forms.Controls;
@@ -52,6 +52,7 @@ namespace ShopList
         public static List<HardHighscore> localHighScores = new List<HardHighscore>();
         public static List<MediumHighscore> localMediumScores = new List<MediumHighscore>();
         public static List<EasyHighscore> localEasyScores = new List<EasyHighscore>();
+        public static List<Data> localData = new List<Data>();
 
         public SQLDatabase sqlDatabase;
         public static List<Trophies> localTrophyList = new List<Trophies>();
@@ -66,6 +67,28 @@ namespace ShopList
             InitializeComponent();
 
             // test.Text = GameReport.pickedFoodList.Count.ToString();
+
+            //**** Data Gathering ******************** 
+            sqlDatabase = new SQLDatabase();
+            localData = sqlDatabase.GetAllData();
+
+            foreach (Data data in localData)
+            {
+                if (data.CreatedOn == DateTime.Today)
+                {
+                    data.GamesPlayed = data.GamesPlayed + 1;
+
+                    sqlDatabase.UpdateData(data);
+
+
+                    if (roundCount > data.RoundCountHigh)
+                    {
+                        data.RoundCountHigh = roundCount;
+                        sqlDatabase.UpdateData(data);
+                    }
+                }
+            }
+            //**** Data Gathering ******************** 
 
             nameEntry.IsVisible = false;
 
@@ -595,6 +618,7 @@ namespace ShopList
             loadedGamesPlayed = await GamesPlayed();
             Console.WriteLine("Games played: " + loadedGamesPlayed);
 
+
             //**** DEBUGGING ********//
             Console.WriteLine("Trophies Already Earned: ");
             foreach (Trophies trophy in localTrophyList)
@@ -607,7 +631,7 @@ namespace ShopList
             var matchNoviceAward = localTrophyList.Where(Trophies => String.Equals(Trophies.TrophyPic, "noviceAward", StringComparison.CurrentCulture));
             Console.WriteLine(matchNoviceAward.Any());
 
-            if (roundCount == 1 && matchNoviceAward.Any() == false)
+            if (roundCount == 2 && matchNoviceAward.Any() == false)
             {
                 Trophies trophy = new Trophies();
 
@@ -806,6 +830,23 @@ namespace ShopList
 
             }// End of pro on hard 20 award.
 
+            //******* Goldfish AWARD ***********//
+            var matchGoldfishAward = localTrophyList.Where(Trophies => String.Equals(Trophies.TrophyPic, "goldfishAward", StringComparison.CurrentCulture));
+            Console.WriteLine(matchGoldfishAward.Any());
+
+            if (roundCount == 1 && matchGoldfishAward.Any() == false)
+            {
+                Trophies trophy = new Trophies();
+
+                trophy.Trophy = "Goldfish Award";
+                trophy.TrophyPic = "goldfishAward";
+
+                newTrophiesList.Add(trophy);
+                newAward = true;
+
+            }// End of goldfish award.
+
+
             //**** DEBUGGING ********//
             Console.WriteLine("Trophies Earned During This Game: ");
             foreach (Trophies trophy in newTrophiesList)
@@ -998,7 +1039,6 @@ namespace ShopList
             IFile file2 = await folder.CreateFileAsync(scoreName, CreationCollisionOption.ReplaceExisting);
 
             await file2.WriteAllTextAsync(nameSave);
-
 
         }
 

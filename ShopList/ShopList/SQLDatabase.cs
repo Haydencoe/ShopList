@@ -27,6 +27,9 @@ namespace ShopList
             // Create Trophy table.
             connection.CreateTable<Trophies>();
 
+            // Create Data table.
+            connection.CreateTable<Data>();
+
         }
 
 
@@ -186,10 +189,35 @@ namespace ShopList
         // Add a new trophy.
         public void AddTrophy(Trophies trophy)
         {
-
             connection.Insert(trophy);
         }
 
+        //************************************************************
+        // Game data table methods.
+
+        public List<Data> GetAllData()
+        {
+            return (from t in connection.Table<Data>()
+                    select t).ToList();
+        }
+
+        // Delete all the trophies.  
+        public void DeleteAllData()
+        {
+            connection.DeleteAll<Data>();
+        }
+
+        // Add a new trophy.
+        public void AddData(Data data)
+        {
+            connection.Insert(data);
+        }
+
+        // Update Contact Data  
+        public void UpdateData(Data data)
+        {
+            connection.Update(data);
+        }
 
     } // End of class
 

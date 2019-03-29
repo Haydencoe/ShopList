@@ -3,23 +3,32 @@
              xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class = "ShopList.BluetoothScreenPage" >
     <ContentPage.Content>
-        <StackLayout >
-            <Button Text = "Search" Clicked = "searchDevice" Margin="0,50,0,0" class="otherMain"/>
+       
+        
+       <StackLayout >
+            <Button Text="Done" Clicked="Done_Clicked" Margin="15,50,5,5" HorizontalOptions="Start"/>
+            <Button Text = "Search" Clicked = "searchDevice" Margin="0,0,0,0" class="otherMain"/>
             <ListView x:Name = "DevicesList"
-                      IsPullToRefreshEnabled = "true"
-                      CachingStrategy = "RecycleElement"
-                      ItemSelected = "DevicesList_OnItemSelected">
+                       IsPullToRefreshEnabled = "true"
+                       CachingStrategy = "RecycleElement"
+                       RowHeight="75"
+                       ItemSelected = "DevicesList_OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Margin="10,10,10,10" Text = "{Binding NativeDevice.Name}" > </Label >
-                                <Label  Text = "{Binding NativeDevice.Address}" > </Label >
+                        <ViewCell >
+                            <StackLayout Orientation="Vertical" >
+                                <Label Margin="20,10,10,10" Text = "{Binding NativeDevice.Name}" > </Label >
+                                <!--<Label  Text = "{Binding NativeDevice.Address}" > </Label > -->
+                                <Label Margin="20,10,10,10" Text="{Binding Id, StringFormat='{0}'}" TextColor="Gray" FontSize="Micro"/>
                             </StackLayout >
                         </ViewCell >
                     </DataTemplate >
                 </ListView.ItemTemplate>
             </ListView >
         </StackLayout >
+    
+    
+    
+    
     </ContentPage.Content>
 </ContentPage >

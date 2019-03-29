@@ -12,6 +12,7 @@ namespace ShopList
         public static List<Trophies> trophies = new List<Trophies>();
         public int counter = 0;
         public int totalTrophies = 0;
+        public static List<Data> localData = new List<Data>();
 
         public TrophiesPage()
         {
@@ -21,9 +22,32 @@ namespace ShopList
             trophies = sqlDatabase.GetAllTrophies();
 
             GridPage();
+
+
         }
-   
+
+        protected override void OnAppearing()
+        {
+            //**** Data Gathering ******************** 
+            localData = sqlDatabase.GetAllData();
+
+            foreach (Data data in localData)
+            {
+                if (data.CreatedOn == DateTime.Today)
+                {
+                    data.TrophiesViewed = data.TrophiesViewed + 1;
+
+                    sqlDatabase.UpdateData(data);
+
+                }
+            }
+            //**** Data Gathering ******************** 
+        }
+
+
         public void GridPage() {
+
+            //Console.WriteLine(trophies.Count);
 
             gridLayout.RowDefinitions.Add(new RowDefinition());
             gridLayout.ColumnDefinitions.Add(new ColumnDefinition());
@@ -38,7 +62,7 @@ namespace ShopList
                 totalTrophies = trophies.Count;
             }
 
-            for (int rowIndex = 0; rowIndex < 10; rowIndex++) // Adds all the Rows
+            for (int rowIndex = 0; rowIndex < trophies.Count; rowIndex++) // Adds all the Rows
             {
                 for (int columnIndex = 0; columnIndex< 1; columnIndex++)// Adds all the columns 
                 {

@@ -21,7 +21,7 @@ namespace ShopList
         public static HardHighscore hardHighScore = new HardHighscore();
 
         IDevice device;
-
+        public ICharacteristic Characteristic { get; private set; }
 
         public HardGamePage()
         {
@@ -33,9 +33,10 @@ namespace ShopList
 
             singleplayer.TextColor = Color.Black;
             multiplayer.TextColor = Color.Gray;
-            multiplayerScreen.TextColor = Color.Gray;
 
-            blue.Opacity = 0;
+
+            //multiplayerScreen.TextColor = Color.Gray;
+            //blue.Opacity = 0;
 
 
         }
@@ -76,6 +77,7 @@ namespace ShopList
             SpinMe();
 
 
+            /*
             device = ConnectedDevice.globalDevice;
 
             if (device != null)
@@ -87,25 +89,56 @@ namespace ShopList
                 Bluetooth();
             }
 
-
+            */
         }
 
 
+        /*
         public async void Bluetooth()
         {
             var services = await device.GetServicesAsync();
             //var characteristics = await services.GetCharacteristicsAsync();
 
             foreach (IService a in services)
-            Console.WriteLine(a);
-        }
+            Console.WriteLine("Services: " + a);
+
+            /*
+
+            // WRITE BLUETOOTH
+            char[] go = { 'a', ' ', 's', 't', 'r', 'i', 'n', 'g' };
+            //var bytes = go;
+            byte[] array = System.Text.Encoding.UTF8.GetBytes(go);
+            await Characteristic.WriteAsync(array);
+
+            */
+
+            /*
+
+            // READ BLUETOOTH
+            var bytes = await Characteristic.ReadAsync();
+
+            char[] readIn = System.Text.Encoding.UTF8.GetString(bytes).ToCharArray();
+
+
+            if (readIn.Length > 0)
+            {
+                foreach (char re in readIn)
+                {
+                    Console.WriteLine("Recieved through bluetooth: " + re);
+                }
+            }
+            */
+
+
+
+       // }// End of bluetooth. 
 
 
         public async void SpinMe()
         {
             await singleIcon.ScaleTo(0.75, 1);
             await multiIcon.ScaleTo(0.5, 1);
-            await multiScreenIcon.ScaleTo(0.5, 1);
+            //await multiScreenIcon.ScaleTo(0.5, 1);
 
             await goButtonHard.RotateTo(360, 500);
             goButtonHard.Rotation = 0;
@@ -140,7 +173,7 @@ namespace ShopList
 
                 singleplayer.TextColor = Color.Black;
                 multiplayer.TextColor = Color.Gray;
-                multiplayerScreen.TextColor = Color.Gray;
+                //multiplayerScreen.TextColor = Color.Gray;
 
                 singleIcon.Source = "playerSelect";
                 singleIcon.ScaleTo(0.75, 1000);
@@ -148,10 +181,9 @@ namespace ShopList
                 multiIcon.Source = "greyPlayerSelect";
                 multiIcon.ScaleTo(0.5, 1000);
 
-                multiScreenIcon.Source = "greyPlayerSelect";
-                multiScreenIcon.ScaleTo(0.5, 1000);
-
-                blue.FadeTo(0, 500);
+                //multiScreenIcon.Source = "greyPlayerSelect";
+                //multiScreenIcon.ScaleTo(0.5, 1000);
+                //blue.FadeTo(0, 500);
             }
 
 
@@ -168,7 +200,7 @@ namespace ShopList
 
                 multiplayer.TextColor = Color.Black;
                 singleplayer.TextColor = Color.Gray;
-                multiplayerScreen.TextColor = Color.Gray;
+                //multiplayerScreen.TextColor = Color.Gray;
 
                 multiIcon.Source = "playerSelect";
                 multiIcon.ScaleTo(0.75, 1000);
@@ -176,17 +208,15 @@ namespace ShopList
                 singleIcon.Source = "greyPlayerSelect";
                 singleIcon.ScaleTo(0.5, 1000);
 
-                multiScreenIcon.Source = "greyPlayerSelect";
-                multiScreenIcon.ScaleTo(0.5, 1000);
-
-
-
-                blue.FadeTo(0, 500);
+                //multiScreenIcon.Source = "greyPlayerSelect";
+                //multiScreenIcon.ScaleTo(0.5, 1000);
+               // blue.FadeTo(0, 500);
             
             }
 
         }
 
+        /* Bluetooth multiplayer for future releases.
         private void Multi_Screen_Clicked(object sender, EventArgs e)
         {
 
@@ -215,14 +245,15 @@ namespace ShopList
             }
 
         }
+        */
 
-
+            /*
         private async void Blue_Clicked(object sender, EventArgs e)
         {
 
             await Navigation.PushModalAsync(new BluetoothScreenPage());
         }
-
+        */
 
 
 

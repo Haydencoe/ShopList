@@ -68,7 +68,7 @@ namespace ShopList
 
         public async void SpinMe()
         {
-
+            await singleIcon.ScaleTo(0.75, 1);
             await multiIcon.ScaleTo(0.5, 1);
 
             await goButtonMedium.RotateTo(360, 500);
@@ -108,7 +108,7 @@ namespace ShopList
 
 
                 singleIcon.Source = "playerSelect";
-                singleIcon.ScaleTo(1, 1000);
+                singleIcon.ScaleTo(0.75, 1000);
 
                 multiIcon.Source = "greyPlayerSelect";
                 multiIcon.ScaleTo(0.5, 1000);
@@ -132,7 +132,7 @@ namespace ShopList
 
 
                 multiIcon.Source = "playerSelect";
-                multiIcon.ScaleTo(1, 1000);
+                multiIcon.ScaleTo(0.75, 1000);
 
                 singleIcon.Source = "greyPlayerSelect";
                 singleIcon.ScaleTo(0.5, 1000);
